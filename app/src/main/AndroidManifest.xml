@@ -30,16 +30,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.android.AmritaResouce.NumbersActivity"
+            android:name="com.example.android.AmritaResouce.CSEActivity"
             android:label="@string/category_numbers" />
         <activity
-            android:name="com.example.android.AmritaResouce.FamilyActivity"
+            android:name="com.example.android.AmritaResouce.ECEActivity"
             android:label="@string/category_family" />
         <activity
-            android:name="com.example.android.AmritaResouce.ColorsActivity"
+            android:name="com.example.android.AmritaResouce.EEEActivity"
             android:label="@string/category_colors" />
         <activity
-            android:name="com.example.android.AmritaResouce.PhrasesActivity"
+            android:name="com.example.android.AmritaResouce.MECActivity"
             android:label="@string/category_phrases" />
     </application>
 

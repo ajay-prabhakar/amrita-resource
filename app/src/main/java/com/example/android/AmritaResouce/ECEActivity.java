@@ -15,13 +15,20 @@
  */
 package com.example.android.AmritaResouce;
 
-import android.os.Bundle;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class NumbersActivity extends AppCompatActivity {
+import static android.widget.Toast.LENGTH_LONG;
+
+public class ECEActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +36,17 @@ public class NumbersActivity extends AppCompatActivity {
         setContentView(R.layout.word_list);
 
         // Create a list of words
-        ArrayList<Word> words = new ArrayList<Word>();
-        words.add(new Word("one", "lutti"));
-        words.add(new Word("two", "otiiko"));
-        words.add(new Word("three", "tolookosu"));
-        words.add(new Word("four", "oyyisa"));
-        words.add(new Word("five", "massokka"));
-        words.add(new Word("six", "temmokka"));
-        words.add(new Word("seven", "kenekaku"));
-        words.add(new Word("eight", "kawinta"));
-        words.add(new Word("nine", "wo’e"));
-        words.add(new Word("ten", "na’aacha"));
+        final ArrayList<Word> words = new ArrayList<Word>();
+        words.add(new Word("http://classesatamrita.in/pdf/Crystal%20Structures%20of%20Solids.pdf", "Semester 2-Solid State Devices"));
+        words.add(new Word("mother", "әṭa"));
+        words.add(new Word("son", "angsi"));
+        words.add(new Word("daughter", "tune"));
+        words.add(new Word("older brother", "taachi"));
+        words.add(new Word("younger brother", "chalitti"));
+        words.add(new Word("older sister", "teṭe"));
+        words.add(new Word("younger sister", "kolliti"));
+        words.add(new Word("grandmother ", "ama"));
+        words.add(new Word("grandfather", "paapa"));
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.
@@ -53,5 +60,19 @@ public class NumbersActivity extends AppCompatActivity {
         // Make the {@link ListView} use the {@link WordAdapter} we created above, so that the
         // {@link ListView} will display list items for each {@link Word} in the list.
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                // Release the media player if it currently exists because we are about to
+                // play a different sound file
+                // Get the {@link Word} object at the given position the user clicked on
+                Word word = words.get(position);
+
+                Toast.makeText(getBaseContext(),"Downloading "+word.getMiwokTranslation(), LENGTH_LONG).show();
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(word.getDefaultTranslation())));
+
+
+            }
+        });
     }
 }

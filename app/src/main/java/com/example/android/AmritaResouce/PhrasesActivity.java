@@ -13,22 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.android.miwok;
+package com.example.android.AmritaResouce;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import static android.widget.Toast.LENGTH_LONG;
-
-public class FamilyActivity extends AppCompatActivity {
+public class PhrasesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,17 +29,17 @@ public class FamilyActivity extends AppCompatActivity {
         setContentView(R.layout.word_list);
 
         // Create a list of words
-        final ArrayList<Word> words = new ArrayList<Word>();
-        words.add(new Word("http://classesatamrita.in/pdf/Crystal%20Structures%20of%20Solids.pdf", "Semester 2-Solid State Devices"));
-        words.add(new Word("mother", "әṭa"));
-        words.add(new Word("son", "angsi"));
-        words.add(new Word("daughter", "tune"));
-        words.add(new Word("older brother", "taachi"));
-        words.add(new Word("younger brother", "chalitti"));
-        words.add(new Word("older sister", "teṭe"));
-        words.add(new Word("younger sister", "kolliti"));
-        words.add(new Word("grandmother ", "ama"));
-        words.add(new Word("grandfather", "paapa"));
+        ArrayList<Word> words = new ArrayList<Word>();
+        words.add(new Word("Where are you going?", "minto wuksus"));
+        words.add(new Word("What is your name?", "tinnә oyaase'nә"));
+        words.add(new Word("My name is...", "oyaaset..."));
+        words.add(new Word("How are you feeling?", "michәksәs?"));
+        words.add(new Word("I’m feeling good.", "kuchi achit"));
+        words.add(new Word("Are you coming?", "әәnәs'aa?"));
+        words.add(new Word("Yes, I’m coming.", "hәә’ әәnәm"));
+        words.add(new Word("I’m coming.", "әәnәm"));
+        words.add(new Word("Let’s go.", "yoowutis"));
+        words.add(new Word("Come here.", "әnni'nem"));
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.
@@ -60,19 +53,5 @@ public class FamilyActivity extends AppCompatActivity {
         // Make the {@link ListView} use the {@link WordAdapter} we created above, so that the
         // {@link ListView} will display list items for each {@link Word} in the list.
         listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                // Release the media player if it currently exists because we are about to
-                // play a different sound file
-                // Get the {@link Word} object at the given position the user clicked on
-                Word word = words.get(position);
-
-                Toast.makeText(getBaseContext(),"Downloading "+word.getMiwokTranslation(), LENGTH_LONG).show();
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(word.getDefaultTranslation())));
-
-
-            }
-        });
     }
 }

@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.miwok">
+    package="com.example.android.AmritaResouce">
 
     <application
         android:allowBackup="true"
@@ -22,7 +22,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.android.AmritaResouce.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,16 +30,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".NumbersActivity"
+            android:name="com.example.android.AmritaResouce.NumbersActivity"
             android:label="@string/category_numbers" />
         <activity
-            android:name=".FamilyActivity"
+            android:name="com.example.android.AmritaResouce.FamilyActivity"
             android:label="@string/category_family" />
         <activity
-            android:name=".ColorsActivity"
+            android:name="com.example.android.AmritaResouce.ColorsActivity"
             android:label="@string/category_colors" />
         <activity
-            android:name=".PhrasesActivity"
+            android:name="com.example.android.AmritaResouce.PhrasesActivity"
             android:label="@string/category_phrases" />
     </application>
 

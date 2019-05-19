@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.android.miwok;
+package com.example.android.AmritaResouce;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,7 +21,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class PhrasesActivity extends AppCompatActivity {
+public class ColorsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +30,14 @@ public class PhrasesActivity extends AppCompatActivity {
 
         // Create a list of words
         ArrayList<Word> words = new ArrayList<Word>();
-        words.add(new Word("Where are you going?", "minto wuksus"));
-        words.add(new Word("What is your name?", "tinnә oyaase'nә"));
-        words.add(new Word("My name is...", "oyaaset..."));
-        words.add(new Word("How are you feeling?", "michәksәs?"));
-        words.add(new Word("I’m feeling good.", "kuchi achit"));
-        words.add(new Word("Are you coming?", "әәnәs'aa?"));
-        words.add(new Word("Yes, I’m coming.", "hәә’ әәnәm"));
-        words.add(new Word("I’m coming.", "әәnәm"));
-        words.add(new Word("Let’s go.", "yoowutis"));
-        words.add(new Word("Come here.", "әnni'nem"));
+        words.add(new Word("red", "weṭeṭṭi"));
+        words.add(new Word("mustard yellow", "chiwiiṭә"));
+        words.add(new Word("dusty yellow", "ṭopiisә"));
+        words.add(new Word("green", "chokokki"));
+        words.add(new Word("brown", "ṭakaakki"));
+        words.add(new Word("gray", "ṭopoppi"));
+        words.add(new Word("black", "kululli"));
+        words.add(new Word("white", "kelelli"));
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.

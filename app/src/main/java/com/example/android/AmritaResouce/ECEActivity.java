@@ -37,16 +37,16 @@ public class ECEActivity extends AppCompatActivity {
 
         // Create a list of words
         final ArrayList<Word> words = new ArrayList<Word>();
-        words.add(new Word("http://classesatamrita.in/pdf/Crystal%20Structures%20of%20Solids.pdf", "Semester 2-Solid State Devices"));
-        words.add(new Word("mother", "әṭa"));
-        words.add(new Word("son", "angsi"));
-        words.add(new Word("daughter", "tune"));
-        words.add(new Word("older brother", "taachi"));
-        words.add(new Word("younger brother", "chalitti"));
-        words.add(new Word("older sister", "teṭe"));
-        words.add(new Word("younger sister", "kolliti"));
-        words.add(new Word("grandmother ", "ama"));
-        words.add(new Word("grandfather", "paapa"));
+        words.add(new Word("Crystal Structures of Solids", "Semester 2-Solid State Devices","http://classesatamrita.in/pdf/Crystal%20Structures%20of%20Solids.pdf"));
+        words.add(new Word("Quantum Theory of Solids", "Semester 2-Solid State Devices","http://classesatamrita.in/pdf/Quantum%20Theory%20Of%20Solids.pdf"));
+        words.add(new Word("Quantum Mechanics", "Semester 2-Solid State Devices","http://classesatamrita.in/pdf/Quantum%20Mechanics.pdf"));
+        words.add(new Word("daughter", "tune","https://www.google.com/"));
+        words.add(new Word("older brother", "taachi","https://www.google.com/"));
+        words.add(new Word("younger brother", "chalitti","https://www.google.com/"));
+        words.add(new Word("older sister", "teṭe","https://www.google.com/"));
+        words.add(new Word("younger sister", "kolliti","https://www.google.com/"));
+        words.add(new Word("grandmother ", "ama","https://www.google.com/"));
+        words.add(new Word("grandfather", "paapa","https://www.google.com/"));
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.
@@ -69,7 +69,7 @@ public class ECEActivity extends AppCompatActivity {
                 Word word = words.get(position);
 
                 Toast.makeText(getBaseContext(),"Downloading "+word.getMiwokTranslation(), LENGTH_LONG).show();
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(word.getDefaultTranslation())));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(word.getURL())));
 
 
             }

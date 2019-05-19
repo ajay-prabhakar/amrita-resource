@@ -27,6 +27,8 @@ public class Word {
     /** Miwok translation for the word */
     private String mMiwokTranslation;
 
+    private String mURL;
+
     /**
      * Create a new Word object.
      *
@@ -34,9 +36,10 @@ public class Word {
      *                           (such as English)
      * @param miwokTranslation is the word in the Miwok language
      */
-    public Word(String defaultTranslation, String miwokTranslation) {
+    public Word(String defaultTranslation, String miwokTranslation, String URL) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mURL=URL;
     }
 
     /**
@@ -53,4 +56,5 @@ public class Word {
         return mMiwokTranslation;
     }
 
+    public String getURL(){ return mURL; }
 }

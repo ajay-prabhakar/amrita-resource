@@ -30,16 +30,16 @@ public class CSEActivity extends AppCompatActivity {
 
         // Create a list of words
         ArrayList<Word> words = new ArrayList<Word>();
-        words.add(new Word("one", "lutti"));
-        words.add(new Word("two", "otiiko"));
-        words.add(new Word("three", "tolookosu"));
-        words.add(new Word("four", "oyyisa"));
-        words.add(new Word("five", "massokka"));
-        words.add(new Word("six", "temmokka"));
-        words.add(new Word("seven", "kenekaku"));
-        words.add(new Word("eight", "kawinta"));
-        words.add(new Word("nine", "wo’e"));
-        words.add(new Word("ten", "na’aacha"));
+        words.add(new Word("one", "lutti",""));
+        words.add(new Word("two", "otiiko",""));
+        words.add(new Word("three", "tolookosu",""));
+        words.add(new Word("four", "oyyisa",""));
+        words.add(new Word("five", "massokka",""));
+        words.add(new Word("six", "temmokka",""));
+        words.add(new Word("seven", "kenekaku",""));
+        words.add(new Word("eight", "kawinta",""));
+        words.add(new Word("nine", "wo’e",""));
+        words.add(new Word("ten", "na’aacha",""));
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.

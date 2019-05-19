@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -31,16 +30,24 @@
         </activity>
         <activity
             android:name="com.example.android.AmritaResouce.CSEActivity"
-            android:label="@string/category_numbers" />
+            android:label="@string/category_numbers"
+            android:theme="@style/Activity"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name="com.example.android.AmritaResouce.ECEActivity"
-            android:label="@string/category_family" />
+            android:label="@string/category_family"
+            android:theme="@style/Activity"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name="com.example.android.AmritaResouce.EEEActivity"
-            android:label="@string/category_colors" />
+            android:label="@string/category_colors"
+            android:theme="@style/Activity"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name="com.example.android.AmritaResouce.MECActivity"
-            android:label="@string/category_phrases" />
+            android:label="@string/category_phrases"
+            android:theme="@style/Activity"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

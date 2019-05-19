@@ -22,6 +22,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -37,16 +38,16 @@ public class ECEActivity extends AppCompatActivity {
 
         // Create a list of words
         final ArrayList<Word> words = new ArrayList<Word>();
-        words.add(new Word("Crystal Structures of Solids", "Semester 2-Solid State Devices","http://classesatamrita.in/pdf/Crystal%20Structures%20of%20Solids.pdf"));
-        words.add(new Word("Quantum Theory of Solids", "Semester 2-Solid State Devices","http://classesatamrita.in/pdf/Quantum%20Theory%20Of%20Solids.pdf"));
-        words.add(new Word("Quantum Mechanics", "Semester 2-Solid State Devices","http://classesatamrita.in/pdf/Quantum%20Mechanics.pdf"));
-        words.add(new Word("daughter", "tune","https://www.google.com/"));
-        words.add(new Word("older brother", "taachi","https://www.google.com/"));
-        words.add(new Word("younger brother", "chalitti","https://www.google.com/"));
-        words.add(new Word("older sister", "teṭe","https://www.google.com/"));
-        words.add(new Word("younger sister", "kolliti","https://www.google.com/"));
-        words.add(new Word("grandmother ", "ama","https://www.google.com/"));
-        words.add(new Word("grandfather", "paapa","https://www.google.com/"));
+        words.add(new Word("SEMESTER 3 :","",""));
+        words.add(new Word("Applied Electromagnetics", "Semester 3","http://classesatamrita.in/pdf/Applied%20Electromagnetics.pdf"));
+        words.add(new Word("Maths Notes", "Semester 3","http://classesatamrita.in/pdf/MathsLinearAlgebra.pdf"));
+        words.add(new Word("Digital Circuits", "Semester 3","http://classesatamrita.in/pdf/Fundamentals%20of%20Digital%20Logic%20with%20Verilog%20Design.pdf"));
+        words.add(new Word("Digital Circuits Notes", "Semester 3","http://classesatamrita.in/pdf/Digital%20Circuits%20notes.pdf"));
+        words.add(new Word("Network Theory", "Semester 3","http://classesatamrita.in/pdf/Fundamental%20of%20Electric%20Elements.pdf"));
+        words.add(new Word("Network Theory Notes", "Semester 3","http://classesatamrita.in/pdf/Network%20Theory.pdf"));
+        words.add(new Word("Signal Processing", "Semester 3","http://classesatamrita.in/pdf/Signal%20and%20Systems-Simon%20Haykin-Wiley.pdf"));
+        words.add(new Word("Signal Processing Notes", "Semester 3","http://classesatamrita.in/pdf/Signal%20Processing.pdf"));
+
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.
@@ -59,17 +60,23 @@ public class ECEActivity extends AppCompatActivity {
 
         // Make the {@link ListView} use the {@link WordAdapter} we created above, so that the
         // {@link ListView} will display list items for each {@link Word} in the list.
+
         listView.setAdapter(adapter);
+
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                // Release the media player if it currently exists because we are about to
-                // play a different sound file
-                // Get the {@link Word} object at the given position the user clicked on
                 Word word = words.get(position);
 
                 Toast.makeText(getBaseContext(),"Downloading "+word.getMiwokTranslation(), LENGTH_LONG).show();
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(word.getURL())));
+                String URL=word.getURL();
+                if(URL.length()==0){
+                    Toast.makeText(getBaseContext(),"from this "+word.getMiwokTranslation().substring(0,10)+" subjects starts", LENGTH_LONG).show();
+                }
+                else {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(word.getURL())));
+                }
 
 
             }

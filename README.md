@@ -16,5 +16,8 @@ Getting Started
 This sample uses the Gradle build system. To build this project, use the
 "gradlew build" command or use "Import Project" in Android Studio.
 
+
+
+Currently I am updating in ECE ony that to in semester TWO only once I get the all resouces I will update in all departments
 Anyone can contribute and suggest new ideas 
 Happy Coding :)

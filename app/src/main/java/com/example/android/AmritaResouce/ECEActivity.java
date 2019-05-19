@@ -38,7 +38,7 @@ public class ECEActivity extends AppCompatActivity {
 
         // Create a list of words
         final ArrayList<Word> words = new ArrayList<Word>();
-        words.add(new Word("SEMESTER 3 :","",""));
+        words.add(new Word("SEMESTER 3:","",""));
         words.add(new Word("Applied Electromagnetics", "Semester 3","http://classesatamrita.in/pdf/Applied%20Electromagnetics.pdf"));
         words.add(new Word("Maths Notes", "Semester 3","http://classesatamrita.in/pdf/MathsLinearAlgebra.pdf"));
         words.add(new Word("Digital Circuits", "Semester 3","http://classesatamrita.in/pdf/Fundamentals%20of%20Digital%20Logic%20with%20Verilog%20Design.pdf"));

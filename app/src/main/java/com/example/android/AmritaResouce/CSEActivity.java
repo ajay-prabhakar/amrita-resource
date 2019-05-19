@@ -15,11 +15,18 @@
  */
 package com.example.android.AmritaResouce;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import static android.widget.Toast.LENGTH_LONG;
 
 public class CSEActivity extends AppCompatActivity {
 
@@ -29,17 +36,16 @@ public class CSEActivity extends AppCompatActivity {
         setContentView(R.layout.word_list);
 
         // Create a list of words
-        ArrayList<Word> words = new ArrayList<Word>();
-        words.add(new Word("one", "lutti",""));
-        words.add(new Word("two", "otiiko",""));
-        words.add(new Word("three", "tolookosu",""));
-        words.add(new Word("four", "oyyisa",""));
-        words.add(new Word("five", "massokka",""));
-        words.add(new Word("six", "temmokka",""));
-        words.add(new Word("seven", "kenekaku",""));
-        words.add(new Word("eight", "kawinta",""));
-        words.add(new Word("nine", "wo’e",""));
-        words.add(new Word("ten", "na’aacha",""));
+        final ArrayList<Word> words = new ArrayList<Word>();
+        words.add(new Word("SEMESTER 3:", "",""));
+        words.add(new Word("Data Structures", "","http://www.classesatamrita.in/pdf/Data%20Structures%20and%20Algorithms.pdf"));
+        words.add(new Word("Data Structures Notes", "","http://www.classesatamrita.in/pdf/Data%20Structures.pdf"));
+        words.add(new Word("Data Structures Lab", "","http://www.classesatamrita.in/DataStructures.html"));
+        words.add(new Word("Maths Notes", "","http://www.classesatamrita.in/pdf/Maths3%20notes.pdf"));
+        words.add(new Word("Maths Text Book", "","http://www.classesatamrita.in/pdf/Discrete%20Mathematics%20an%20app.pdf"));
+        words.add(new Word("Oops Notes", "","http://www.classesatamrita.in/pdf/Oops%20notes.pdf"));
+        words.add(new Word("Digital Circuits", "","http://www.classesatamrita.in/pdf/Fundamentals%20of%20Digital%20Logic%20with%20Verilog%20Design.pdf"));
+        words.add(new Word("Digital Circuits Notes", "","http://www.classesatamrita.in/pdf/Digital%20Circuits%20notes.pdf"));
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.
@@ -53,5 +59,27 @@ public class CSEActivity extends AppCompatActivity {
         // Make the {@link ListView} use the {@link WordAdapter} we created above, so that the
         // {@link ListView} will display list items for each {@link Word} in the list.
         listView.setAdapter(adapter);
+
+
+
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Word word = words.get(position);
+
+                Toast.makeText(getBaseContext(),"Downloading "+word.getMiwokTranslation(), LENGTH_LONG).show();
+                String URL=word.getURL();
+                if(URL.length()==0){
+                    Toast.makeText(getBaseContext(),"from this "+word.getMiwokTranslation().substring(0,10)+" subjects starts", LENGTH_LONG).show();
+                }
+                else {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(word.getURL())));
+                }
+
+
+            }
+        });
     }
 }

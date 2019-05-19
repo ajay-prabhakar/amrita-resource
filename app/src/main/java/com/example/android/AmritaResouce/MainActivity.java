@@ -16,11 +16,17 @@
 package com.example.android.AmritaResouce;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +39,18 @@ public class MainActivity extends AppCompatActivity {
 
         // Find the View that shows the numbers category
         TextView numbers = (TextView) findViewById(R.id.numbers);
+
+
+
+
+        //getting the toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        //setting the title
+        toolbar.setTitle("Amrita Resource");
+
+        //placing toolbar in place of actionbar
+        setSupportActionBar(toolbar);
 
         // Set a click listener on that View
         numbers.setOnClickListener(new OnClickListener() {
@@ -94,5 +112,29 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(phrasesIntent);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()){
+            case R.id.menuAbout:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://chromicle.github.io/")));
+                break;
+
+            case R.id.menuSettings:
+                Toast.makeText(this, "You clicked settings", Toast.LENGTH_SHORT).show();
+                break;
+
+
+        }
+        return true;
     }
 }

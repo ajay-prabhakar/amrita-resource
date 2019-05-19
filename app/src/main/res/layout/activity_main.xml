@@ -20,10 +20,20 @@
     android:orientation="vertical"
     tools:context="com.example.android.AmritaResouce.MainActivity">
 
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:background="@color/primary_color" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="3dp"
+        android:paddingTop="4dp">
 
         <ImageView
             android:layout_width="72dp"
@@ -42,7 +52,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="3dp">
 
 
         <ImageView
@@ -62,7 +73,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="3dp">
 
         <ImageView
             android:layout_width="72dp"
@@ -80,7 +92,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="3dp">
 
         <ImageView
             android:layout_width="72dp"

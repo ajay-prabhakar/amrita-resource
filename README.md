@@ -15,3 +15,6 @@ Getting Started
 
 This sample uses the Gradle build system. To build this project, use the
 "gradlew build" command or use "Import Project" in Android Studio.
+
+Anyone can contribute and suggest new ideas 
+Happy Coding :)

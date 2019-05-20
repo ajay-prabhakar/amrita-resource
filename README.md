@@ -1,4 +1,4 @@
-Amrita Resouce
+Amrita Resource
 ===================================
 
 An android App which contains some PDFs of classes notes of particular department of particular subject which is for Amrita University

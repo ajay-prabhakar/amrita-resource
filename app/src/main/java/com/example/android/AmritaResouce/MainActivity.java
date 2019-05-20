@@ -52,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
         //placing toolbar in place of actionbar
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+
+
         // Set a click listener on that View
         numbers.setOnClickListener(new OnClickListener() {
             // The code in this method will be executed when the numbers category is clicked on.

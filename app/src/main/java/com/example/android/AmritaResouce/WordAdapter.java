@@ -74,6 +74,7 @@ public class WordAdapter extends ArrayAdapter<Word>  {
         else{
 
             miwokTextView.setTextSize(20);
+            miwokTextView.setTextColor(Color.parseColor("#000000"));
 
         }
 

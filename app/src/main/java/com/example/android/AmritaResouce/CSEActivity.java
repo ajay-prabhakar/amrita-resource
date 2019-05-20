@@ -18,8 +18,10 @@ package com.example.android.AmritaResouce;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -30,6 +32,7 @@ import static android.widget.Toast.LENGTH_LONG;
 
 public class CSEActivity extends AppCompatActivity {
 
+    ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +57,7 @@ public class CSEActivity extends AppCompatActivity {
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the
         // word_list.xml layout file.
-        ListView listView = (ListView) findViewById(R.id.list);
+        listView = (ListView) findViewById(R.id.list);
 
         // Make the {@link ListView} use the {@link WordAdapter} we created above, so that the
         // {@link ListView} will display list items for each {@link Word} in the list.
@@ -79,6 +82,40 @@ public class CSEActivity extends AppCompatActivity {
                 }
 
 
+            }
+        });
+
+        setUpFab();
+    }
+
+
+    private void setUpFab() {
+        final FloatingActionButton fabScrollUp = (FloatingActionButton) findViewById(R.id.fab_scroll_up);
+        fabScrollUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listView.setSelection(0);
+                fabScrollUp.hide();
+            }
+        });
+        fabScrollUp.hide();
+        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+                int lastItem = firstVisibleItem + visibleItemCount;
+                if (lastItem == totalItemCount && firstVisibleItem > 0) {
+                    fabScrollUp.show();
+                }
+                else {
+                    fabScrollUp.hide();
+                }
             }
         });
     }

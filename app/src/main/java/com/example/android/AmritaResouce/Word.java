@@ -22,38 +22,38 @@ package com.example.android.AmritaResouce;
 public class Word {
 
     /** Default translation for the word */
-    private String mDefaultTranslation;
+    private String mSubNotes;
 
     /** Miwok translation for the word */
-    private String mMiwokTranslation;
+    private String mSubject;
 
     private String mURL;
 
     /**
      * Create a new Word object.
      *
-     * @param defaultTranslation is the word in a language that the user is already familiar with
+     * @param subNotes is the word in a language that the user is already familiar with
      *                           (such as English)
-     * @param miwokTranslation is the word in the Miwok language
+     * @param subjectName is the word in the Miwok language
      */
-    public Word( String miwokTranslation,String defaultTranslation, String URL) {
-        mDefaultTranslation = defaultTranslation;
-        mMiwokTranslation = miwokTranslation;
+    public Word( String subjectName,String subNotes, String URL) {
+        mSubNotes = subNotes;
+        mSubject = subjectName;
         mURL=URL;
     }
 
     /**
      * Get the default translation of the word.
      */
-    public String getDefaultTranslation() {
-        return mDefaultTranslation;
+    public String getSubNotesName() {
+        return mSubNotes;
     }
 
     /**
      * Get the Miwok translation of the word.
      */
-    public String getMiwokTranslation() {
-        return mMiwokTranslation;
+    public String getSubjectName() {
+        return mSubject;
     }
 
     public String getURL(){ return mURL; }

@@ -20,13 +20,10 @@ import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -74,10 +71,10 @@ public class ECEActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Word word = words.get(position);
 
-                Toast.makeText(getBaseContext(),"Downloading "+word.getMiwokTranslation(), LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(),"Downloading "+word.getSubjectName(), LENGTH_LONG).show();
                 String URL=word.getURL();
                 if(URL.length()==0){
-                    Toast.makeText(getBaseContext(),"from this "+word.getMiwokTranslation().substring(0,10)+" subjects starts", LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(),"from this "+word.getSubjectName().substring(0,10)+" subjects starts", LENGTH_LONG).show();
                 }
                 else {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(word.getURL())));

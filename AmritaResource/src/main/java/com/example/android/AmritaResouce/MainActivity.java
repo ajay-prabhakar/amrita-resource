@@ -136,6 +136,9 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "You clicked settings", Toast.LENGTH_SHORT).show();
                 break;
 
+            case R.id.aums:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://aumsamstudents.amrita.edu:8443/cas/login?service=https%3A%2F%2Faumsamstudents.amrita.edu%3A8443%2Faums%2FJsp%2FCore_Common%2FindexIPad.jsp%3Ftask%3Doff")));
+
 
         }
         return true;

@@ -9,4 +9,9 @@
         android:id="@+id/menuSettings"
         android:title="Settings" />
 
+
+    <item
+        android:id="@+id/aums"
+        android:title="AUMS" />
+
 </menu>

@@ -17,6 +17,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
+    android:backgroundTint="@color/tan_background"
     android:orientation="vertical"
     tools:context="com.example.android.AmritaResouce.MainActivity">
 
@@ -28,84 +29,109 @@
         android:layout_alignParentStart="true"
         android:background="@color/primary_color" />
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="3dp"
-        android:paddingTop="4dp">
+        android:layout_margin="8dp"
+        android:padding="5dp">
 
-        <ImageView
-            android:layout_width="72dp"
-            android:layout_height="match_parent"
-            android:paddingRight="3dp"
-            android:src="@drawable/cse" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/numbers"
-            style="@style/CategoryStyle"
-            android:background="@color/category_numbers"
-            android:text="CSE" />
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="match_parent"
+                android:paddingRight="3dp"
+                android:src="@drawable/cse" />
 
-    </LinearLayout>
 
-    <LinearLayout
+            <TextView
+                android:id="@+id/numbers"
+                style="@style/CategoryStyle"
+                android:background="@color/category_numbers"
+                android:text="CSE" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="3dp">
+        android:layout_margin="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="3dp">
 
 
-        <ImageView
-            android:layout_width="72dp"
-            android:layout_height="match_parent"
-            android:paddingRight="3dp"
-            android:src="@drawable/ece" />
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="match_parent"
+                android:paddingRight="3dp"
+                android:src="@drawable/ece" />
 
-        <TextView
-            android:id="@+id/family"
-            style="@style/CategoryStyle"
-            android:background="@color/category_family"
-            android:text="ECE" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/family"
+                style="@style/CategoryStyle"
+                android:background="@color/category_family"
+                android:text="ECE" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 
-
-    <LinearLayout
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="3dp">
+        android:layout_margin="8dp">
 
-        <ImageView
-            android:layout_width="72dp"
-            android:layout_height="match_parent"
-            android:paddingRight="3dp"
-            android:src="@drawable/eee" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="3dp">
 
-        <TextView
-            android:id="@+id/colors"
-            style="@style/CategoryStyle"
-            android:background="@color/category_colors"
-            android:text="EEE" />
-    </LinearLayout>
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="match_parent"
+                android:paddingRight="3dp"
+                android:src="@drawable/eee" />
 
-    <LinearLayout
+            <TextView
+                android:id="@+id/colors"
+                style="@style/CategoryStyle"
+                android:background="@color/category_colors"
+                android:text="EEE" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="3dp">
+        android:layout_margin="8dp">
 
-        <ImageView
-            android:layout_width="72dp"
-            android:layout_height="match_parent"
-            android:paddingRight="3dp"
-            android:src="@drawable/mec" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="3dp">
 
-        <TextView
-            android:id="@+id/phrases"
-            style="@style/CategoryStyle"
-            android:background="@color/category_phrases"
-            android:text="MEC" />
-    </LinearLayout>
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="match_parent"
+                android:paddingRight="3dp"
+                android:src="@drawable/mec" />
+
+            <TextView
+                android:id="@+id/phrases"
+                style="@style/CategoryStyle"
+                android:background="@color/category_phrases"
+                android:text="MEC" />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>

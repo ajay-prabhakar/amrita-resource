@@ -48,6 +48,11 @@
             android:label="@string/category_phrases"
             android:theme="@style/Activity"
             android:parentActivityName=".MainActivity"/>
+
+        <activity
+        android:name="com.example.android.AmritaResouce.webViewActivity"
+        android:label="ABOUT APP"
+        android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

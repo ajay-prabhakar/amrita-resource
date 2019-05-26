@@ -26,9 +26,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    private static final String LICENSES_HTML_PATH = "file:///android_asset/about_app.html";
+    public static final String OPEN_URL = "url";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,12 +131,14 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch(item.getItemId()){
-            case R.id.menuAbout:
+            case R.id.menuAboutAuthor:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://chromicle.github.io/")));
                 break;
 
-            case R.id.menuSettings:
-                Toast.makeText(this, "You clicked settings", Toast.LENGTH_SHORT).show();
+            case R.id.menuAboutApp:
+                Intent intent = new Intent(this, webViewActivity.class);
+                intent.putExtra(OPEN_URL, LICENSES_HTML_PATH);
+                startActivity(intent);
                 break;
 
             case R.id.aums:

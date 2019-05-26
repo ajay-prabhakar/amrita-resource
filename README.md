@@ -1,7 +1,7 @@
 Amrita Resource
 ===================================
 
-An android App which contains some PDFs of classes notes of particular department of particular subject which is for Amrita University
+An Android App which contains some PDFs of class notes of particular department of particular subject which is for Amrita University
 
 Pre-requisites
 --------------
@@ -18,6 +18,7 @@ This sample uses the Gradle build system. To build this project, use the
 
 
 
-Currently I am updating in ECE ony that to in semester TWO only once I get the all resouces I will update in all departments
-Anyone can contribute and suggest new ideas 
+Currently I am updating the resources for CSE and ECE departments only and that too for semester 3 only. Once I get all the resources, I will update in all departments.
+You can freely contribute to the project on the note that 'contributing guidelines' of the project are followed.
+New ideas and suggestions are welcomed.
 Happy Coding :)

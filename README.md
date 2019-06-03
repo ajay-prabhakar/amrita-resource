@@ -6,8 +6,8 @@ An Android App which contains some PDFs of class notes of particular department 
 Pre-requisites
 --------------
 
-- Android SDK v23
-- Android Build Tools v23.3.0
+- Android SDK v28
+- Android Build Tools v28.0.0
 - Android Support Repository v23.3.0
 
 Getting Started

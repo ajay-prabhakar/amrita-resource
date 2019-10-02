@@ -17,7 +17,7 @@ This sample uses the Gradle build system. To build this project, use the
 "gradlew build" command or use "Import Project" in Android Studio.
 
 
-
+NOTE: Currently sever is not working but update the features in the app
 Currently I am updating the resources for CSE and ECE departments only and that too for semester 3 only. Once I get all the resources, I will update in all departments.
 You can freely contribute to the project on the note that 'contributing guidelines' of the project are followed.
 New ideas and suggestions are welcomed.

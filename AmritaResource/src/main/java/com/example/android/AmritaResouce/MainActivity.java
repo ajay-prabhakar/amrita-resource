@@ -55,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
         //placing toolbar in place of actionbar
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+        //remove icon from toolbar
+        /*getSupportActionBar().setIcon(R.mipmap.ic_launcher);*/
 
 
         // Set a click listener on that View

@@ -19,7 +19,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
@@ -30,9 +34,12 @@ import java.util.ArrayList;
 
 import static android.widget.Toast.LENGTH_LONG;
 
-public class CSEActivity extends AppCompatActivity {
+public class CSEActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     ListView listView;
+
+    private WordAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,19 +47,19 @@ public class CSEActivity extends AppCompatActivity {
 
         // Create a list of words
         final ArrayList<Word> words = new ArrayList<Word>();
-        words.add(new Word("SEMESTER 3:", "",""));
-        words.add(new Word("Data Structures", "","http://www.classesatamrita.in/pdf/Data%20Structures%20and%20Algorithms.pdf"));
-        words.add(new Word("Data Structures Notes", "","http://www.classesatamrita.in/pdf/Data%20Structures.pdf"));
-        words.add(new Word("Data Structures Lab", "","http://www.classesatamrita.in/DataStructures.html"));
-        words.add(new Word("Maths Notes", "","http://www.classesatamrita.in/pdf/Maths3%20notes.pdf"));
-        words.add(new Word("Maths Text Book", "","http://www.classesatamrita.in/pdf/Discrete%20Mathematics%20an%20app.pdf"));
-        words.add(new Word("Oops Notes", "","http://www.classesatamrita.in/pdf/Oops%20notes.pdf"));
-        words.add(new Word("Digital Circuits", "","http://www.classesatamrita.in/pdf/Fundamentals%20of%20Digital%20Logic%20with%20Verilog%20Design.pdf"));
-        words.add(new Word("Digital Circuits Notes", "","http://www.classesatamrita.in/pdf/Digital%20Circuits%20notes.pdf"));
+        words.add(new Word("SEMESTER 3:", "", ""));
+        words.add(new Word("Data Structures", "", "http://www.classesatamrita.in/pdf/Data%20Structures%20and%20Algorithms.pdf"));
+        words.add(new Word("Data Structures Notes", "", "http://www.classesatamrita.in/pdf/Data%20Structures.pdf"));
+        words.add(new Word("Data Structures Lab", "", "http://www.classesatamrita.in/DataStructures.html"));
+        words.add(new Word("Maths Notes", "", "http://www.classesatamrita.in/pdf/Maths3%20notes.pdf"));
+        words.add(new Word("Maths Text Book", "", "http://www.classesatamrita.in/pdf/Discrete%20Mathematics%20an%20app.pdf"));
+        words.add(new Word("Oops Notes", "", "http://www.classesatamrita.in/pdf/Oops%20notes.pdf"));
+        words.add(new Word("Digital Circuits", "", "http://www.classesatamrita.in/pdf/Fundamentals%20of%20Digital%20Logic%20with%20Verilog%20Design.pdf"));
+        words.add(new Word("Digital Circuits Notes", "", "http://www.classesatamrita.in/pdf/Digital%20Circuits%20notes.pdf"));
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.
-        WordAdapter adapter = new WordAdapter(this, words);
+        adapter = new WordAdapter(this, words);
 
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the
@@ -64,20 +71,16 @@ public class CSEActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
 
-
-
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Word word = words.get(position);
 
-                Toast.makeText(getBaseContext(),"Downloading "+word.getSubjectName(), LENGTH_LONG).show();
-                String URL=word.getURL();
-                if(URL.length()==0){
-                    Toast.makeText(getBaseContext(),"from this "+word.getSubjectName().substring(0,10)+" subjects starts", LENGTH_LONG).show();
-                }
-                else {
+                Toast.makeText(getBaseContext(), "Downloading " + word.getSubjectName(), LENGTH_LONG).show();
+                String URL = word.getURL();
+                if (URL.length() == 0) {
+                    Toast.makeText(getBaseContext(), "from this " + word.getSubjectName().substring(0, 10) + " subjects starts", LENGTH_LONG).show();
+                } else {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(word.getURL())));
                 }
 
@@ -112,11 +115,47 @@ public class CSEActivity extends AppCompatActivity {
                 int lastItem = firstVisibleItem + visibleItemCount;
                 if (lastItem == totalItemCount && firstVisibleItem > 0) {
                     fabScrollUp.show();
-                }
-                else {
+                } else {
                     fabScrollUp.hide();
                 }
             }
         });
     }
+
+    //to open searchview
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_search, menu);
+        final MenuItem searchItem = menu.findItem(R.id.action_search);
+        final SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setQueryHint("Search");
+        searchView.setOnQueryTextListener(this);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_search:
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+        return true;
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String s) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String s) {
+        adapter.search(s.trim());
+        listView.invalidate();
+        return false;
+    }
+
+
 }

@@ -24,21 +24,34 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 /**
  * {@link WordAdapter} is an {@link ArrayAdapter} that can provide the layout for each list item
  * based on a data source, which is a list of {@link Word} objects.
  */
-public class WordAdapter extends ArrayAdapter<Word>  {
+public class WordAdapter extends ArrayAdapter<Word> {
+
+    private List<Word> wordList;
+    private ArrayList<Word> wordArrayList;
 
     /**
      * Create a new {@link WordAdapter} object.
      *
      * @param context is the current context (i.e. Activity) that the adapter is being created in.
-     * @param words is the list of {@link Word}s to be displayed.
+     * @param words   is the list of {@link Word}s to be displayed.
      */
-    public WordAdapter(Context context, ArrayList<Word> words) {
+    public WordAdapter(Context context, List<Word> words) {
         super(context, 0, words);
+        this.wordList = words;
+        this.wordArrayList = new ArrayList<>();
+        this.wordArrayList.addAll(wordList);
+    }
+
+    @Override
+    public int getCount() {
+        return wordList.size();
     }
 
     @Override
@@ -67,11 +80,10 @@ public class WordAdapter extends ArrayAdapter<Word>  {
         // Return the whole list item layout (containing 2 TextViews) so that it can be shown in
         // the ListView.
 
-        if(position==0){
+        if (position == 0) {
             miwokTextView.setTextSize(25);
             miwokTextView.setTextColor(Color.parseColor("#FD8E09"));
-        }
-        else{
+        } else {
 
             miwokTextView.setTextSize(20);
             miwokTextView.setTextColor(Color.parseColor("#000000"));
@@ -79,5 +91,25 @@ public class WordAdapter extends ArrayAdapter<Word>  {
         }
 
         return listItemView;
+    }
+
+    //funtcion search like recylerview
+    void search(String charText) {
+
+        charText = charText.toLowerCase(Locale.getDefault());
+
+        wordList.clear();
+
+        if (charText.length() == 0) {
+            wordList.addAll(wordArrayList);
+
+        } else {
+            for (Word word : wordArrayList) {
+                if (word.getSubjectName().toLowerCase(Locale.getDefault()).contains(charText)) {
+                    wordList.add(word);
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 }

@@ -27,4 +27,6 @@
 
     <!-- Category name for the vocabulary words for family members [CHAR LIMIT=20] -->
     <string name="category_family">ECE</string>
+
+    <string name="txt_no_internet_connection">There is no proper internet connection</string>
 </resources>

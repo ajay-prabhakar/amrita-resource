@@ -15,11 +15,11 @@
  */
 package com.example.android.AmritaResouce;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
@@ -29,6 +29,9 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.android.AmritaResouce.util.AlertDialogUtil;
+import com.example.android.AmritaResouce.util.NetworkUtil;
 
 import java.util.ArrayList;
 
@@ -70,11 +73,21 @@ public class CSEActivity extends AppCompatActivity implements SearchView.OnQuery
         // {@link ListView} will display list items for each {@link Word} in the list.
         listView.setAdapter(adapter);
 
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Word word = words.get(position);
+
+                if (!NetworkUtil.isNetworkConnected(CSEActivity.this)) {
+                    AlertDialogUtil.showAlertDialog(CSEActivity.this, getString(R.string.txt_no_internet_connection), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    });
+
+                    return;
+                }
 
                 Toast.makeText(getBaseContext(), "Downloading " + word.getSubjectName(), LENGTH_LONG).show();
                 String URL = word.getURL();
@@ -90,7 +103,6 @@ public class CSEActivity extends AppCompatActivity implements SearchView.OnQuery
 
         setUpFab();
     }
-
 
     private void setUpFab() {
         final FloatingActionButton fabScrollUp = (FloatingActionButton) findViewById(R.id.fab_scroll_up);

@@ -20,6 +20,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
@@ -79,7 +80,6 @@ public class CSEActivity extends AppCompatActivity implements SearchView.OnQuery
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Word word = words.get(position);
 
-
                 if (!NetworkUtil.isNetworkConnected(CSEActivity.this)) {
                     AlertDialogUtil.showAlertDialog(CSEActivity.this, getString(R.string.txt_no_internet_connection), new DialogInterface.OnClickListener() {
                         @Override
@@ -90,7 +90,6 @@ public class CSEActivity extends AppCompatActivity implements SearchView.OnQuery
 
                     return;
                 }
-
 
                 Toast.makeText(getBaseContext(), "Downloading " + word.getSubjectName(), LENGTH_LONG).show();
                 String URL = word.getURL();

@@ -73,10 +73,12 @@ public class CSEActivity extends AppCompatActivity implements SearchView.OnQuery
         // {@link ListView} will display list items for each {@link Word} in the list.
         listView.setAdapter(adapter);
 
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Word word = words.get(position);
+
 
                 if (!NetworkUtil.isNetworkConnected(CSEActivity.this)) {
                     AlertDialogUtil.showAlertDialog(CSEActivity.this, getString(R.string.txt_no_internet_connection), new DialogInterface.OnClickListener() {
@@ -88,6 +90,7 @@ public class CSEActivity extends AppCompatActivity implements SearchView.OnQuery
 
                     return;
                 }
+
 
                 Toast.makeText(getBaseContext(), "Downloading " + word.getSubjectName(), LENGTH_LONG).show();
                 String URL = word.getURL();

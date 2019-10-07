@@ -15,6 +15,7 @@
  */
 package com.example.android.AmritaResouce;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
@@ -28,6 +29,9 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.android.AmritaResouce.util.AlertDialogUtil;
+import com.example.android.AmritaResouce.util.NetworkUtil;
 
 import java.util.ArrayList;
 
@@ -74,6 +78,17 @@ public class ECEActivity extends AppCompatActivity implements SearchView.OnQuery
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Word word = words.get(position);
+
+                if (!NetworkUtil.isNetworkConnected(ECEActivity.this)) {
+                    AlertDialogUtil.showAlertDialog(ECEActivity.this, getString(R.string.txt_no_internet_connection), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    });
+
+                    return;
+                }
 
                 Toast.makeText(getBaseContext(),"Downloading "+word.getSubjectName(), LENGTH_LONG).show();
                 String URL=word.getURL();

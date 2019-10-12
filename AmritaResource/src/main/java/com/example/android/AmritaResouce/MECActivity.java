@@ -1,30 +1,29 @@
 /*
- * Copyright (C) 2016 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+* Copyright (C) 2016 The Android Open Source Project
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 package com.example.android.AmritaResouce;
 
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListView;
-
 import java.util.ArrayList;
 
 public class MECActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
@@ -76,38 +75,38 @@ public class MECActivity extends AppCompatActivity implements SearchView.OnQuery
         setUpFab();
     }
 
-
     private void setUpFab() {
-        final FloatingActionButton fabScrollUp = (FloatingActionButton) findViewById(R.id.fab_scroll_up);
-        fabScrollUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listView.setSelection(0);
-                fabScrollUp.hide();
-            }
-        });
+        final FloatingActionButton fabScrollUp =
+                (FloatingActionButton) findViewById(R.id.fab_scroll_up);
+        fabScrollUp.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        listView.setSelection(0);
+                        fabScrollUp.hide();
+                    }
+                });
         fabScrollUp.hide();
-        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
+        listView.setOnScrollListener(
+                new AbsListView.OnScrollListener() {
+                    @Override
+                    public void onScrollStateChanged(AbsListView view, int scrollState) {}
 
+                    @Override
+                    public void onScroll(
+                            AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
 
-            }
-
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-
-                int lastItem = firstVisibleItem + visibleItemCount;
-                if (lastItem == totalItemCount && firstVisibleItem > 0) {
-                    fabScrollUp.show();
-                } else {
-                    fabScrollUp.hide();
-                }
-            }
-        });
+                        int lastItem = firstVisibleItem + visibleItemCount;
+                        if (lastItem == totalItemCount && firstVisibleItem > 0) {
+                            fabScrollUp.show();
+                        } else {
+                            fabScrollUp.hide();
+                        }
+                    }
+                });
     }
 
-    //to open searchview
+    // to open searchview
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_search, menu);

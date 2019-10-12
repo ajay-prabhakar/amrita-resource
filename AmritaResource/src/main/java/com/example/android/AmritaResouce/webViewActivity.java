@@ -11,7 +11,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
-
 public class webViewActivity extends AppCompatActivity {
 
     public static final String OPEN_URL = "url";
@@ -32,33 +31,35 @@ public class webViewActivity extends AppCompatActivity {
         webView = (WebView) findViewById(R.id.webView);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
-        webView.setWebViewClient(new WebViewClient() {
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                super.onPageStarted(view, url, favicon);
-                getSupportActionBar().setTitle("ABOUT");
-                progressBar.setVisibility(View.VISIBLE);
-                invalidateOptionsMenu();
-            }
+        webView.setWebViewClient(
+                new WebViewClient() {
+                    @Override
+                    public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                        super.onPageStarted(view, url, favicon);
+                        getSupportActionBar().setTitle("ABOUT");
+                        progressBar.setVisibility(View.VISIBLE);
+                        invalidateOptionsMenu();
+                    }
 
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                webView.loadUrl(url);
-                return true;
-            }
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                        webView.loadUrl(url);
+                        return true;
+                    }
 
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
-                progressBar.setVisibility(View.GONE);
-            }
+                    @Override
+                    public void onPageFinished(WebView view, String url) {
+                        super.onPageFinished(view, url);
+                        progressBar.setVisibility(View.GONE);
+                    }
 
-            @Override
-            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-                super.onReceivedError(view, request, error);
-                progressBar.setVisibility(View.GONE);
-            }
-        });
+                    @Override
+                    public void onReceivedError(
+                            WebView view, WebResourceRequest request, WebResourceError error) {
+                        super.onReceivedError(view, request, error);
+                        progressBar.setVisibility(View.GONE);
+                    }
+                });
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setSupportZoom(true);
         webView.getSettings().setBuiltInZoomControls(true);
@@ -82,4 +83,3 @@ public class webViewActivity extends AppCompatActivity {
         }
     }
 }
-

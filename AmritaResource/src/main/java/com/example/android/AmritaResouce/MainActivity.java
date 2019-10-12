@@ -41,11 +41,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Find the View that shows the numbers category
-        TextView numbers = findViewById(R.id.numbers);
+        TextView numbers = (TextView) findViewById(R.id.numbers);
+
+
 
 
         //getting the toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         //setting the title
         toolbar.setTitle("Amrita Resource");
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Find the View that shows the family category
-        TextView family = findViewById(R.id.family);
+        TextView family = (TextView) findViewById(R.id.family);
 
         // Set a click listener on that View
         family.setOnClickListener(new OnClickListener() {
@@ -87,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Find the View that shows the colors category
-        TextView colors = findViewById(R.id.colors);
+        TextView colors = (TextView) findViewById(R.id.colors);
 
         // Set a click listener on that View
         colors.setOnClickListener(new OnClickListener() {
@@ -103,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Find the View that shows the phrases category
-        TextView phrases = findViewById(R.id.phrases);
+        TextView phrases = (TextView) findViewById(R.id.phrases);
 
         // Set a click listener on that View
         phrases.setOnClickListener(new OnClickListener() {

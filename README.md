@@ -1,3 +1,8 @@
+[![Travis CI](https://travis-ci.com/amfoss/TempleApp.svg?branch=master)](https://travis-ci.com/chromicle/AmritaResource)
+[![Android Studio](https://img.shields.io/badge/android%20studio-v3.4.1-blue.svg?cacheSeconds=2592000)](https://developer.android.com/studio/)
+[![Gradle](https://img.shields.io/badge/gradle-v5.1.1-green.svg?cacheSeconds=2592000)](https://docs.gradle.org/5.1.1/release-notes.html)
+
+
 Amrita Resource
 ===================================
 

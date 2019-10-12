@@ -1,3 +1,6 @@
+plugins {
+    id "com.diffplug.gradle.spotless" version "3.24.0"
+}
 apply plugin: 'com.android.application'
 
 android {
@@ -22,7 +25,16 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-
+spotless {
+    java {
+        googleJavaFormat()
+        indentWithTabs(2)
+        endWithNewline()
+        trimTrailingWhitespace()
+        indentWithSpaces(4)
+        target '**/*.java'
+    }
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])

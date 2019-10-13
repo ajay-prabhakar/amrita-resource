@@ -16,122 +16,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:backgroundTint="@color/tan_background"
     android:orientation="vertical"
-    tools:context="com.example.android.AmritaResouce.MainActivity">
+    tools:ignore="ContentDescription,UseCompoundDrawables,HardcodedText">
 
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        app:titleTextColor="@android:color/white"
         android:background="@color/primary_color" />
 
-    <android.support.v7.widget.CardView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:padding="5dp">
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <ImageView
+            style="@style/CategoryStyleThumb"
+            android:src="@drawable/cse" />
 
-            <ImageView
-                android:layout_width="72dp"
-                android:layout_height="match_parent"
-                android:paddingRight="3dp"
-                android:src="@drawable/cse" />
+        <TextView
+            android:id="@+id/numbers"
+            style="@style/CategoryStyleText"
+            android:text="CSE" />
+
+    </LinearLayout>
 
 
-            <TextView
-                android:id="@+id/numbers"
-                style="@style/CategoryStyle"
-                android:background="@color/category_numbers"
-                android:text="CSE" />
-
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp">
+        android:layout_margin="8dp"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="3dp">
+        <ImageView
+            style="@style/CategoryStyleThumb"
+            android:src="@drawable/ece"
+
+            />
+
+        <TextView
+            android:id="@+id/family"
+            style="@style/CategoryStyleText"
+            android:text="ECE"
+             />
+    </LinearLayout>
 
 
-            <ImageView
-                android:layout_width="72dp"
-                android:layout_height="match_parent"
-                android:paddingRight="3dp"
-                android:src="@drawable/ece" />
-
-            <TextView
-                android:id="@+id/family"
-                style="@style/CategoryStyle"
-                android:background="@color/category_family"
-                android:text="ECE" />
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp">
+        android:layout_margin="8dp"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="3dp">
+        <ImageView
+            style="@style/CategoryStyleThumb"
+            android:src="@drawable/eee"
 
-            <ImageView
-                android:layout_width="72dp"
-                android:layout_height="match_parent"
-                android:paddingRight="3dp"
-                android:src="@drawable/eee" />
+            />
 
-            <TextView
-                android:id="@+id/colors"
-                style="@style/CategoryStyle"
-                android:background="@color/category_colors"
-                android:text="EEE" />
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView
+        <TextView
+            android:id="@+id/colors"
+            style="@style/CategoryStyleText"
+            android:text="EEE" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp">
+        android:layout_margin="8dp"
+        android:orientation="horizontal">
+        <ImageView
+            style="@style/CategoryStyleThumb"
+            android:src="@drawable/mec"
+            />
+        <TextView
+            android:id="@+id/phrases"
+            style="@style/CategoryStyleText"
+            android:text="MEC" />
+    </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="3dp">
 
-            <ImageView
-                android:layout_width="72dp"
-                android:layout_height="match_parent"
-                android:paddingRight="3dp"
-                android:src="@drawable/mec" />
-
-            <TextView
-                android:id="@+id/phrases"
-                style="@style/CategoryStyle"
-                android:background="@color/category_phrases"
-                android:text="MEC" />
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
 
 </LinearLayout>

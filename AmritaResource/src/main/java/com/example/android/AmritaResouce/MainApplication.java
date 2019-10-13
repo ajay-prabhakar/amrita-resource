@@ -2,7 +2,6 @@ package com.example.android.AmritaResouce;
 
 import android.app.Application;
 import android.content.Context;
-
 import org.acra.ACRA;
 import org.acra.annotation.AcraCore;
 import org.acra.annotation.AcraMailSender;
@@ -10,7 +9,6 @@ import org.acra.config.CoreConfigurationBuilder;
 import org.acra.config.MailSenderConfigurationBuilder;
 import org.acra.config.ToastConfigurationBuilder;
 import org.acra.data.StringFormat;
-
 
 @AcraMailSender(mailTo = MainApplication.EMAIL_TO)
 @AcraCore(buildConfigClass = BuildConfig.class)

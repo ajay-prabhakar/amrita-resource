@@ -29,4 +29,5 @@
     <string name="category_family">ECE</string>
 
     <string name="txt_no_internet_connection">There is no proper internet connection</string>
+    <string name="crash_toast_msg">ERROR</string>
 </resources>

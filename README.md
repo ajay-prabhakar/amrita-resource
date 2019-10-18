@@ -3,34 +3,34 @@
 
 # Amrita Resource
 
-An Android App which contains some PDFs of class notes of particular department of particular subject which is for Amrita University
 
 [![Watchers](https://img.shields.io/github/watchers/Chromicle/AmritaResource.svg?style=social&label=Watchers&maxAge=2592000)](https://github.com/Chromicle/AmritaResource/watchers/)
 [![Star Gazers](https://img.shields.io/github/stars/Chromicle/AmritaResource.svg?style=social&label=Stars&maxAge=2592000)](https://GitHub.com/Chromicle/AmritaResource/stargazers/)
 [![Forks](https://img.shields.io/github/forks/Chromicle/AmritaResource.svg?style=social&label=Forks&maxAge=2592000)](https://GitHub.com/Chromicle/AmritaResource/network/members/)
 
+[![License: MIT](https://img.shields.io/badge/license-Apache%202-blue)](https://opensource.org/licenses/Apache-2.0)
 [![Travis CI](https://travis-ci.com/amfoss/TempleApp.svg?branch=master)](https://travis-ci.com/chromicle/AmritaResource)
+
 [![Android Studio](https://img.shields.io/badge/android%20studio-v3.4.1-blue.svg?cacheSeconds=2592000)](https://developer.android.com/studio/)
 [![Gradle](https://img.shields.io/badge/gradle-v5.1.1-green.svg?cacheSeconds=2592000)](https://docs.gradle.org/5.1.1/release-notes.html)
 
-Pre-requisites
---------------
+An Android App which contains some PDFs of class notes of particular department of particular subject which is for Amrita University
+
+## Pre-requisites
 
 - Android SDK v28
 - Android Build Tools v28.0.0
 - Android Support Repository v23.3.0
 
-Getting Started
----------------
+## Getting Started
 
-This sample uses the Gradle build system. To build this project, use the
-"gradlew build" command or use "Import Project" in Android Studio.
+This sample uses the [Gradle build system](https://gradle.org/). To build this project, use the
+`gradlew build` command or use *Import Project* in [Android Studio](https://developer.android.com/studio#).
 
 
-PR Instruction
---------------
+## PR Instruction
 
-This project uses Travis CI for checking pull requests. So before committing your changes, open Terminal via android studio and run the following commands:
+This project uses [Travis CI](https://travis-ci.org/Chromicle/AmritaResource) for checking pull requests. So before committing your changes, open Terminal via android studio and run the following commands:
 
 For Windows:  
 - `gradlew clean` then  

@@ -20,13 +20,29 @@ An Android App which contains some PDFs of class notes of particular department 
 
 - Android SDK v28
 - Android Build Tools v28.0.0
-- Android Support Repository v23.3.0
+- Android Support Repository v23.3.
 
-## Getting Started
+These components can be downloaded bundled at the [Android studio IDE](https://developer.android.com/studio)
 
-This sample uses the [Gradle build system](https://gradle.org/). To build this project, use the
-`gradlew build` command or use *Import Project* in [Android Studio](https://developer.android.com/studio#).
+### Setting up your development environment
 
+- Download and install Git
+
+- Fork the [Amrita Resource project](https://github.com/Chromicle/AmritaResource)
+
+- Clone your fork of the project locally. At the command line:
+    ```
+    $ git clone https://github.com/YOUR-GITHUB-USERNAME/AmritaResource
+    ```
+- To build this project, use the `gradlew build` command
+
+If you prefer not to use the command line, you can use Android Studio to create a new project from version control using
+```
+https://github.com/YOUR-GITHUB-USERNAME/AmritaResource
+```
+and use **Import Project** in Android Studio to build it
+
+If there are any missing dependencies, install them first by clicking on the links provided by Android studio. Once the project is built successfully, run the project by clicking on the green arrow at the top of the screen.
 
 ## PR Instruction
 

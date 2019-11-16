@@ -16,14 +16,14 @@
 package com.example.android.AmritaResouce;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListView;
+import android.widget.SearchView;
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 public class EEEActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
@@ -99,8 +99,7 @@ public class EEEActivity extends AppCompatActivity implements SearchView.OnQuery
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_search, menu);
         final MenuItem searchItem = menu.findItem(R.id.action_search);
-        final android.support.v7.widget.SearchView searchView =
-                (android.support.v7.widget.SearchView) searchItem.getActionView();
+        final SearchView searchView = (SearchView) searchItem.getActionView();
         searchView.setQueryHint("Search");
         searchView.setOnQueryTextListener(this);
         return true;

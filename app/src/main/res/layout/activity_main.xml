@@ -13,21 +13,21 @@
      limitations under the License.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:backgroundTint="@color/tan_background"
     android:orientation="vertical"
     tools:ignore="ContentDescription,UseCompoundDrawables,HardcodedText">
 
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:titleTextColor="@android:color/white"
-        android:background="@color/primary_color" />
+        android:background="@color/primary_color"
+        app:titleTextColor="@android:color/white" />
 
 
     <LinearLayout
@@ -63,8 +63,7 @@
         <TextView
             android:id="@+id/family"
             style="@style/CategoryStyleText"
-            android:text="ECE"
-             />
+            android:text="ECE" />
     </LinearLayout>
 
 
@@ -92,16 +91,16 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:orientation="horizontal">
+
         <ImageView
             style="@style/CategoryStyleThumb"
-            android:src="@drawable/mec"
-            />
+            android:src="@drawable/mec" />
+
         <TextView
             android:id="@+id/phrases"
             style="@style/CategoryStyleText"
             android:text="MEC" />
     </LinearLayout>
-
 
 
 </LinearLayout>

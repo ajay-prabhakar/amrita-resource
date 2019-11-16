@@ -10,10 +10,8 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
-
 import com.example.android.AmritaResouce.R;
 import com.example.android.AmritaResouce.models.SubjectModel;
 import com.example.android.AmritaResouce.models.UploadDocumentViewmodel;
@@ -27,7 +25,6 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -114,12 +111,12 @@ public class UploadActivty extends AppCompatActivity {
                     .addOnFailureListener(
                             e -> {
                                 Toast.makeText(
-                                        UploadActivty.this,
-                                        "Error while uploading image in database",
-                                        Toast.LENGTH_SHORT)
+                                                UploadActivty.this,
+                                                "Error while uploading image in database",
+                                                Toast.LENGTH_SHORT)
                                         .show();
                                 Toast.makeText(
-                                        UploadActivty.this, "Failed due to " + e.getMessage(), Toast.LENGTH_SHORT)
+                                                UploadActivty.this, "Failed due to " + e.getMessage(), Toast.LENGTH_SHORT)
                                         .show();
                                 viewModel.setDocumentUploadTask(null);
                                 btnUpload.setEnabled(false);
@@ -176,15 +173,14 @@ public class UploadActivty extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         selectedSub = subjects.get(position);
                         Toast.makeText(
-                                UploadActivty.this,
-                                "Selected Subject : " + subjects.get(position),
-                                Toast.LENGTH_SHORT)
+                                        UploadActivty.this,
+                                        "Selected Subject : " + subjects.get(position),
+                                        Toast.LENGTH_SHORT)
                                 .show();
                     }
 
                     @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
-                    }
+                    public void onNothingSelected(AdapterView<?> parent) {}
                 });
     }
 
@@ -199,13 +195,12 @@ public class UploadActivty extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         selectedSem = sems.get(position);
                         Toast.makeText(
-                                UploadActivty.this, "Selcetd Sem :" + sems.get(position), Toast.LENGTH_SHORT)
+                                        UploadActivty.this, "Selcetd Sem :" + sems.get(position), Toast.LENGTH_SHORT)
                                 .show();
                     }
 
                     @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
-                    }
+                    public void onNothingSelected(AdapterView<?> parent) {}
                 });
     }
 
@@ -221,15 +216,14 @@ public class UploadActivty extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         selectedBranch = branches.get(position);
                         Toast.makeText(
-                                UploadActivty.this,
-                                "Selected Branch" + branches.get(position),
-                                Toast.LENGTH_SHORT)
+                                        UploadActivty.this,
+                                        "Selected Branch" + branches.get(position),
+                                        Toast.LENGTH_SHORT)
                                 .show();
                     }
 
                     @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
-                    }
+                    public void onNothingSelected(AdapterView<?> parent) {}
                 });
     }
 
@@ -257,18 +251,21 @@ public class UploadActivty extends AppCompatActivity {
                         .whereEqualTo("branch", selectedBranch)
                         .whereEqualTo("sem", selectedSem);
         FireStoreQueryLiveData SubjectliveData = new FireStoreQueryLiveData(query);
-        SubjectliveData.observe(this, queryDocumentSnapshots -> {
-            if (queryDocumentSnapshots.isEmpty()) {
-                Toast.makeText(UploadActivty.this, "Subject is not available", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            List<SubjectModel> subjectModels = queryDocumentSnapshots.toObjects(SubjectModel.class);
-            subjects = new ArrayList<>();
-            for (int i = 0; i < subjectModels.size(); i++) {
-                subjects.add(subjectModels.get(i).getSubject());
-            }
-            setUpSubjectSpinners();
-        });
+        SubjectliveData.observe(
+                this,
+                queryDocumentSnapshots -> {
+                    if (queryDocumentSnapshots.isEmpty()) {
+                        Toast.makeText(UploadActivty.this, "Subject is not available", Toast.LENGTH_SHORT)
+                                .show();
+                        return;
+                    }
+                    List<SubjectModel> subjectModels = queryDocumentSnapshots.toObjects(SubjectModel.class);
+                    subjects = new ArrayList<>();
+                    for (int i = 0; i < subjectModels.size(); i++) {
+                        subjects.add(subjectModels.get(i).getSubject());
+                    }
+                    setUpSubjectSpinners();
+                });
     }
 
     private class SelectDocument implements View.OnClickListener {
@@ -287,10 +284,11 @@ public class UploadActivty extends AppCompatActivity {
             getIntent.setType("*/*");
 
             Intent pickIntent = new Intent(Intent.ACTION_PICK);
-            pickIntent.setDataAndType(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "*/*");
+            pickIntent.setDataAndType(
+                    android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "*/*");
 
             Intent chooserIntent = Intent.createChooser(getIntent, "Select Documents");
-            chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{pickIntent});
+            chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {pickIntent});
 
             startActivityForResult(chooserIntent, RC_SELECT_DOCUMENT);
         }

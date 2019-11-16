@@ -4,8 +4,7 @@ public class SubjectModel {
 
     private String subject, branch, sem;
 
-    public SubjectModel() {
-    }
+    public SubjectModel() {}
 
     public String getSubject() {
         return subject;

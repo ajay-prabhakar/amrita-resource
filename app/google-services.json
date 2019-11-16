@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1031172550304",
+    "firebase_url": "https://amrita-resouce.firebaseio.com",
+    "project_id": "amrita-resouce",
+    "storage_bucket": "amrita-resouce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1031172550304:android:b05af04b03e238e2fd63c5",
+        "android_client_info": {
+          "package_name": "com.example.android.miwok"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1031172550304-8qg7lm656vov64ldedh5hsiv1j9tclop.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.miwok",
+            "certificate_hash": "d49ad4300580576fe419125421373605b0a7a47c"
+          }
+        },
+        {
+          "client_id": "1031172550304-r0hoqnkboqqqpl4n4o5kcidgo11vme4k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOCRAuU6HcROsFGvmg4Ipct7UDSR5vLqA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1031172550304-r0hoqnkboqqqpl4n4o5kcidgo11vme4k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

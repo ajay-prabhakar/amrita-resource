@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
                             .createSignInIntentBuilder()
                             .setAvailableProviders(signInIntentBuilders)
                             .setIsSmartLockEnabled(false)
-                            .setLogo(R.mipmap.ic_launcher)
+                            .setLogo(R.drawable.logo)
                             .build(),
                     200);
         } else {

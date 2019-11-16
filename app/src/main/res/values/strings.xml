@@ -30,4 +30,21 @@
 
     <string name="txt_no_internet_connection">There is no proper internet connection</string>
     <string name="crash_toast_msg">ERROR</string>
+
+
+    <string-array name="branches">
+        <item>CSE</item>
+        <item>ME</item>
+    </string-array>
+
+    <string-array name="sems">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
 </resources>

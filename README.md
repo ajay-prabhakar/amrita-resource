@@ -8,7 +8,6 @@
 [![Star Gazers](https://img.shields.io/github/stars/Chromicle/AmritaResource.svg?style=social&label=Stars&maxAge=2592000)](https://GitHub.com/Chromicle/AmritaResource/stargazers/)
 [![Forks](https://img.shields.io/github/forks/Chromicle/AmritaResource.svg?style=social&label=Forks&maxAge=2592000)](https://GitHub.com/Chromicle/AmritaResource/network/members/)
 
-[![License: MIT](https://img.shields.io/badge/license-Apache%202-blue)](https://opensource.org/licenses/Apache-2.0)
 [![Travis CI](https://travis-ci.com/amfoss/TempleApp.svg?branch=master)](https://travis-ci.com/chromicle/AmritaResource)
 
 [![Android Studio](https://img.shields.io/badge/android%20studio-v3.4.1-blue.svg?cacheSeconds=2592000)](https://developer.android.com/studio/)

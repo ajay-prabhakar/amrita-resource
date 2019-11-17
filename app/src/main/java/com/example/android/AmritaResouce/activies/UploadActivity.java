@@ -39,7 +39,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class UploadActivty extends AppCompatActivity {
+public class UploadActivity extends AppCompatActivity {
 
     private static final int RC_SELECT_DOCUMENT = 100;
 
@@ -125,12 +125,12 @@ public class UploadActivty extends AppCompatActivity {
                     .addOnFailureListener(
                             e -> {
                                 Toast.makeText(
-                                                UploadActivty.this,
+                                                UploadActivity.this,
                                                 "Error while uploading image in database",
                                                 Toast.LENGTH_SHORT)
                                         .show();
                                 Toast.makeText(
-                                                UploadActivty.this, "Failed due to " + e.getMessage(), Toast.LENGTH_SHORT)
+                                                UploadActivity.this, "Failed due to " + e.getMessage(), Toast.LENGTH_SHORT)
                                         .show();
                                 viewModel.setDocumentUploadTask(null);
                                 btnUpload.setEnabled(false);
@@ -139,7 +139,7 @@ public class UploadActivty extends AppCompatActivity {
                             taskSnapshot -> {
                                 long progress =
                                         (100 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
-                                Toast.makeText(UploadActivty.this, "Progress : " + progress, Toast.LENGTH_SHORT)
+                                Toast.makeText(UploadActivity.this, "Progress : " + progress, Toast.LENGTH_SHORT)
                                         .show();
                             });
         }
@@ -158,7 +158,7 @@ public class UploadActivty extends AppCompatActivity {
                 .addOnFailureListener(
                         e -> {
                             downloadUri = null;
-                            Toast.makeText(UploadActivty.this, "Download URI not found", Toast.LENGTH_SHORT)
+                            Toast.makeText(UploadActivity.this, "Download URI not found", Toast.LENGTH_SHORT)
                                     .show();
                             btnUpload.setEnabled(false);
                         });
@@ -187,7 +187,7 @@ public class UploadActivty extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         selectedSub = subjects.get(position);
                         Toast.makeText(
-                                        UploadActivty.this,
+                                        UploadActivity.this,
                                         "Selected Subject : " + subjects.get(position),
                                         Toast.LENGTH_SHORT)
                                 .show();
@@ -209,7 +209,7 @@ public class UploadActivty extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         selectedSem = sems.get(position);
                         Toast.makeText(
-                                        UploadActivty.this, "Selcetd Sem :" + sems.get(position), Toast.LENGTH_SHORT)
+                                        UploadActivity.this, "Selcetd Sem :" + sems.get(position), Toast.LENGTH_SHORT)
                                 .show();
                     }
 
@@ -230,7 +230,7 @@ public class UploadActivty extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         selectedBranch = branches.get(position);
                         Toast.makeText(
-                                        UploadActivty.this,
+                                        UploadActivity.this,
                                         "Selected Branch" + branches.get(position),
                                         Toast.LENGTH_SHORT)
                                 .show();
@@ -252,7 +252,7 @@ public class UploadActivty extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             if (selectedBranch == null || selectedSem == null) {
-                Toast.makeText(UploadActivty.this, "Branch or Sem is invalid", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UploadActivity.this, "Branch or Sem is invalid", Toast.LENGTH_SHORT).show();
                 return;
             }
             setUpLiveData();
@@ -269,7 +269,7 @@ public class UploadActivty extends AppCompatActivity {
                 this,
                 queryDocumentSnapshots -> {
                     if (queryDocumentSnapshots.isEmpty()) {
-                        Toast.makeText(UploadActivty.this, "Subject is not available", Toast.LENGTH_SHORT)
+                        Toast.makeText(UploadActivity.this, "Subject is not available", Toast.LENGTH_SHORT)
                                 .show();
                         return;
                     }
@@ -287,7 +287,7 @@ public class UploadActivty extends AppCompatActivity {
         public void onClick(View view) {
 
             if (!validateName()) {
-                Toast.makeText(UploadActivty.this, "Name not selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UploadActivity.this, "Name not selected", Toast.LENGTH_SHORT).show();
                 return;
             }
             Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -325,7 +325,7 @@ public class UploadActivty extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             if (downloadUri == null | name.length() == 0 | selectedSub.length() == 0) {
-                Toast.makeText(UploadActivty.this, "Please Fill in details", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UploadActivity.this, "Please Fill in details", Toast.LENGTH_SHORT).show();
                 return;
             } else {
                 UploadDocumentModel model = new UploadDocumentModel();
@@ -350,7 +350,7 @@ public class UploadActivty extends AppCompatActivity {
                         new OnSuccessListener<DocumentReference>() {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
-                                Toast.makeText(UploadActivty.this, "Uploaded Just Now", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(UploadActivity.this, "Uploaded Just Now", Toast.LENGTH_SHORT).show();
                             }
                         })
                 .addOnFailureListener(
@@ -358,7 +358,7 @@ public class UploadActivty extends AppCompatActivity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 Toast.makeText(
-                                                UploadActivty.this,
+                                                UploadActivity.this,
                                                 "something error in uploading" + e.toString(),
                                                 Toast.LENGTH_SHORT)
                                         .show();
@@ -408,7 +408,7 @@ public class UploadActivty extends AppCompatActivity {
                 .addOnFailureListener(
                         e -> {
                             Toast.makeText(
-                                            UploadActivty.this,
+                                            UploadActivity.this,
                                             "Error while uploading image in database" + e.getMessage(),
                                             Toast.LENGTH_SHORT)
                                     .show();
@@ -419,7 +419,7 @@ public class UploadActivty extends AppCompatActivity {
                         taskSnapshot -> {
                             long progress =
                                     (100 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
-                            Toast.makeText(UploadActivty.this, "Progress : " + progress, Toast.LENGTH_SHORT)
+                            Toast.makeText(UploadActivity.this, "Progress : " + progress, Toast.LENGTH_SHORT)
                                     .show();
                             snackbar.setText("Uploading... " + progress + "% Uploaded..");
                         });

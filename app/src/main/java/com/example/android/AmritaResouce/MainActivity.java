@@ -27,7 +27,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import com.example.android.AmritaResouce.activies.UploadActivty;
+import com.example.android.AmritaResouce.activies.UploadActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                 new OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(MainActivity.this, UploadActivty.class);
+                        Intent intent = new Intent(MainActivity.this, UploadActivity.class);
                         startActivity(intent);
                     }
                 });

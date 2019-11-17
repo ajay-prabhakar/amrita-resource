@@ -23,14 +23,17 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import com.example.android.AmritaResouce.activies.UploadActivty;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String LICENSES_HTML_PATH = "file:///android_asset/about_app.html";
     public static final String OPEN_URL = "url";
+    Button btnUpload;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +119,15 @@ public class MainActivity extends AppCompatActivity {
 
                         // Start the new activity
                         startActivity(phrasesIntent);
+                    }
+                });
+        btnUpload = findViewById(R.id.main_btn_upload);
+        btnUpload.setOnClickListener(
+                new OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(MainActivity.this, UploadActivty.class);
+                        startActivity(intent);
                     }
                 });
     }

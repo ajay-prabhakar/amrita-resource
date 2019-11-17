@@ -3,6 +3,7 @@ package com.example.android.AmritaResouce.activies;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,16 +11,25 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 import com.example.android.AmritaResouce.R;
 import com.example.android.AmritaResouce.models.SubjectModel;
+import com.example.android.AmritaResouce.models.UploadDocumentModel;
 import com.example.android.AmritaResouce.models.UploadDocumentViewmodel;
 import com.example.android.AmritaResouce.models.UserViewModel;
 import com.example.android.AmritaResouce.utils.FireStoreQueryLiveData;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.storage.FirebaseStorage;
@@ -36,11 +46,13 @@ public class UploadActivty extends AppCompatActivity {
     private UploadDocumentViewmodel viewModel;
     private UserViewModel userViewModel;
     private UploadTask uploadTask;
+    private FirebaseUser userof;
 
     private FirebaseFirestore mDb;
     private CollectionReference mCollectionReference;
     private FirebaseStorage mStorage;
     private StorageReference mRef;
+    private StorageReference child;
 
     private List<String> branches = new ArrayList<>(new ArrayList<>(Arrays.asList("Please Select")));
     private List<String> subjects = new ArrayList<>(new ArrayList<>(Arrays.asList("Please Select")));
@@ -52,6 +64,7 @@ public class UploadActivty extends AppCompatActivity {
     private String selectedSub;
     private Uri downloadUri;
     private String name = "";
+    private Uri selectedDocument;
 
     private Spinner spinnerBranch;
     private Spinner spinnerSem;
@@ -71,7 +84,7 @@ public class UploadActivty extends AppCompatActivity {
         viewModel = ViewModelProviders.of(this).get(UploadDocumentViewmodel.class);
         userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
 
-        userName = userViewModel.getUser().getDisplayName();
+        userName = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
         uploadTask = viewModel.getDocumentUploadTask();
 
         layoutsInit();
@@ -79,6 +92,7 @@ public class UploadActivty extends AppCompatActivity {
 
         btnFetchSubjects.setOnClickListener(new fetchRelatedSubjects());
         btnSelectDocument.setOnClickListener(new SelectDocument());
+        btnUpload.setOnClickListener(new UploadDocument());
     }
 
     private void layoutsInit() {
@@ -276,10 +290,6 @@ public class UploadActivty extends AppCompatActivity {
                 Toast.makeText(UploadActivty.this, "Name not selected", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (!validateSubject()) {
-                Toast.makeText(UploadActivty.this, "Subject is not Selected", Toast.LENGTH_SHORT).show();
-                return;
-            }
             Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
             getIntent.setType("*/*");
 
@@ -309,5 +319,109 @@ public class UploadActivty extends AppCompatActivity {
             inputName.setErrorEnabled(false);
             return true;
         }
+    }
+
+    private class UploadDocument implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            if (downloadUri == null | name.length() == 0 | selectedSub.length() == 0) {
+                Toast.makeText(UploadActivty.this, "Please Fill in details", Toast.LENGTH_SHORT).show();
+                return;
+            } else {
+                UploadDocumentModel model = new UploadDocumentModel();
+                model.setBranch(selectedBranch);
+                model.setSem(selectedSem);
+                model.setSubject(selectedSub);
+                model.setTimestamp(System.currentTimeMillis());
+                model.setUrl(downloadUri.toString());
+                model.setTitle(name);
+                model.setUserName(userName);
+                startUploadInDatabase(model);
+                // TODO handle life cycle changes in spinner and variables
+            }
+        }
+    }
+
+    private void startUploadInDatabase(UploadDocumentModel model) {
+        CollectionReference uploads = mDb.collection("Uploads");
+        uploads
+                .add(model)
+                .addOnSuccessListener(
+                        new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Toast.makeText(UploadActivty.this, "Uploaded Just Now", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                .addOnFailureListener(
+                        new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(
+                                                UploadActivty.this,
+                                                "something error in uploading" + e.toString(),
+                                                Toast.LENGTH_SHORT)
+                                        .show();
+                            }
+                        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RC_SELECT_DOCUMENT) {
+            if (resultCode == RESULT_OK) {
+                if (data != null) {
+                    selectedDocument = data.getData();
+                    if (getContentResolver().getType(selectedDocument) != null) {
+                        Log.e("EEE", getContentResolver().getType(selectedDocument));
+                        startUploadingFile(selectedDocument);
+                    }
+                }
+            }
+        }
+    }
+
+    private void startUploadingFile(Uri selectedDocument) {
+        Snackbar snackbar =
+                Snackbar.make(findViewById(R.id.parent_view), "Uploading...", Snackbar.LENGTH_INDEFINITE);
+        snackbar.show();
+        child =
+                mRef.child(
+                        "images/"
+                                + userName
+                                + "/items/"
+                                + name
+                                + name
+                                + name
+                                + "169961"
+                                + selectedDocument.getLastPathSegment());
+        uploadTask = child.putFile(selectedDocument);
+        viewModel.setDocumentUploadTask(uploadTask);
+        uploadTask
+                .addOnSuccessListener(
+                        taskSnapshot -> {
+                            getDownloadUrl(taskSnapshot);
+                            viewModel.setDocumentUploadTask(null);
+                            snackbar.dismiss();
+                        })
+                .addOnFailureListener(
+                        e -> {
+                            Toast.makeText(
+                                            UploadActivty.this,
+                                            "Error while uploading image in database" + e.getMessage(),
+                                            Toast.LENGTH_SHORT)
+                                    .show();
+                            viewModel.setDocumentUploadTask(null);
+                            btnUpload.setEnabled(false);
+                        })
+                .addOnProgressListener(
+                        taskSnapshot -> {
+                            long progress =
+                                    (100 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+                            Toast.makeText(UploadActivty.this, "Progress : " + progress, Toast.LENGTH_SHORT)
+                                    .show();
+                            snackbar.setText("Uploading... " + progress + "% Uploaded..");
+                        });
     }
 }

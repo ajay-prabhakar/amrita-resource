@@ -30,8 +30,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import com.example.android.AmritaResouce.util.AlertDialogUtil;
-import com.example.android.AmritaResouce.util.NetworkUtil;
+import com.example.android.AmritaResouce.utils.AlertDialogUtil;
+import com.example.android.AmritaResouce.utils.NetworkUtil;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 

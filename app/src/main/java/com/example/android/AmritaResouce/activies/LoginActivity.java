@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.android.AmritaResouce.MainActivity;
+
 import com.example.android.AmritaResouce.R;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;

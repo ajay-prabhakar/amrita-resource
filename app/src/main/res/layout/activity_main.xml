@@ -1,116 +1,55 @@
-<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
-
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-
-          http://www.apache.org/licenses/LICENSE-2.0
-
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/tan_background"
-    android:orientation="vertical"
-    tools:ignore="ContentDescription,UseCompoundDrawables,HardcodedText">
+    tools:context=".activies.MainActivity">
 
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/primary_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:titleTextColor="@android:color/white" />
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            style="@style/CategoryStyleThumb"
-            android:src="@drawable/cse" />
-
-        <TextView
-            android:id="@+id/numbers"
-            style="@style/CategoryStyleText"
-            android:text="CSE" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            style="@style/CategoryStyleThumb"
-            android:src="@drawable/ece"
-
-            />
-
-        <TextView
-            android:id="@+id/family"
-            style="@style/CategoryStyleText"
-            android:text="ECE" />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            style="@style/CategoryStyleThumb"
-            android:src="@drawable/eee"
-
-            />
-
-
-        <TextView
-            android:id="@+id/colors"
-            style="@style/CategoryStyleText"
-            android:text="EEE" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            style="@style/CategoryStyleThumb"
-            android:src="@drawable/mec" />
-
-        <TextView
-            android:id="@+id/phrases"
-            style="@style/CategoryStyleText"
-            android:text="MEC" />
-    </LinearLayout>
-
-
-    <Button
-        android:layout_gravity="center"
-        android:layout_marginTop="75dp"
-        android:background="@color/primary_color"
-        android:textColor="#ffffff"
-        android:id="@+id/main_btn_upload"
+    <ProgressBar
+        android:id="@+id/progressbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Upload" />
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="324dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</LinearLayout>
+    <com.robertlevonyan.views.customfloatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_home_frag_upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:textAlignment="center"
+        app:fabColor="#F50057"
+        app:fabIcon="@drawable/ic_upload"
+        app:fabText="Upload Now"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_home_frag_main"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:listitem="@layout/item_holder_recycler_home" />
+</androidx.constraintlayout.widget.ConstraintLayout>

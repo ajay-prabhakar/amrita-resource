@@ -1,4 +1,4 @@
-package com.example.android.AmritaResouce.util;
+package com.example.android.AmritaResouce.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

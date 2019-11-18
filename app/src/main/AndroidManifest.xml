@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".activies.UploadActivity"></activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activies.MainActivity" />
         <activity android:name=".activies.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,27 +27,27 @@
         <activity
             android:name=".CSEActivity"
             android:label="@string/category_numbers"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".activies.MainActivity"
             android:theme="@style/Activity" />
         <activity
             android:name=".ECEActivity"
             android:label="@string/category_family"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".activies.MainActivity"
             android:theme="@style/Activity" />
         <activity
             android:name=".EEEActivity"
             android:label="@string/category_colors"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".activies.MainActivity"
             android:theme="@style/Activity" />
         <activity
             android:name=".MECActivity"
             android:label="@string/category_phrases"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".activies.MainActivity"
             android:theme="@style/Activity" />
         <activity
             android:name=".webViewActivity"
             android:label="ABOUT APP"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".activies.MainActivity" />
     </application>
 
 </manifest>

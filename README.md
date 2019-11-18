@@ -1,7 +1,7 @@
 
 
 
-# Amrita Resource
+# Amrita Resource :mortar_board: :school:
 
 
 [![Watchers](https://img.shields.io/github/watchers/Chromicle/AmritaResource.svg?style=social&label=Watchers&maxAge=2592000)](https://github.com/Chromicle/AmritaResource/watchers/)
@@ -13,7 +13,9 @@
 [![Android Studio](https://img.shields.io/badge/android%20studio-v3.4.1-blue.svg?cacheSeconds=2592000)](https://developer.android.com/studio/)
 [![Gradle](https://img.shields.io/badge/gradle-v5.1.1-green.svg?cacheSeconds=2592000)](https://docs.gradle.org/5.1.1/release-notes.html)
 
-An Android App which contains some PDFs of class notes of particular department of particular subject which is for Amrita University
+
+A platform for University Students to share Documents such as Exam Papers and Study Material. Users can Upload/Download Documents shared by Users.
+
 
 ## Pre-requisites
 
@@ -22,6 +24,25 @@ An Android App which contains some PDFs of class notes of particular department 
 - Android Support Repository v23.3.
 
 These components can be downloaded bundled at the [Android studio IDE](https://developer.android.com/studio)
+
+## Tech Stack
+- Java
+- Android SDK
+- Firebase SDK
+
+## Libraries Used
+- [Architecture Components](https://developer.android.com/topic/libraries/architecture/)
+- [CustomFloatingActionButton](https://github.com/robertlevonyan/customFloatingActionButton)
+- [DebugDB](https://github.com/amitshekhariitbhu/Android-Debug-Database)
+- [Dexter](https://github.com/Karumi/Dexter)
+- [Firebase-Firestore](https://firebase.google.com/docs/firestore/)
+- [Firebase-Storage](https://firebase.google.com/docs/storage/)
+- [Firebase-UI](https://firebase.google.com/docs/auth/android/firebaseui)
+- [Glide](https://github.com/bumptech/glide) 
+- [GSON](https://github.com/google/gson)
+- [MaterialDrawer](https://github.com/mikepenz/MaterialDrawer)
+- [Logger](https://github.com/orhanobut/logger)
+
 
 ### Setting up your development environment
 

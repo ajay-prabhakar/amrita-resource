@@ -18,10 +18,12 @@ package com.example.android.AmritaResouce.activies;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ProgressBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -30,6 +32,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.android.AmritaResouce.R;
 import com.example.android.AmritaResouce.adapter.UploadDocumentAdapter;
 import com.example.android.AmritaResouce.models.UploadDocumentModel;
+import com.example.android.AmritaResouce.utils.RecyclerItemClickListener;
 import com.example.android.AmritaResouce.webViewActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -65,6 +68,18 @@ public class MainActivity extends AppCompatActivity {
         layoutsInit();
         forRecyclerView();
         fetchDocuments();
+
+        btnUpload.setOnClickListener(new openUploadActivity());
+        recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(MainActivity.this, new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View v, int position) {
+                        UploadDocumentModel doc = new UploadDocumentModel();
+                        doc= documentList.get(position);
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(doc.getUrl())));
+                    }
+                })
+        );
     }
 
     private void fetchDocuments() {
@@ -134,9 +149,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(
                         new Intent(
                                 Intent.ACTION_VIEW,
-                                Uri.parse(
-                                        "https://aumsamstudents.amrita.edu:8443/cas/login?service=https%3A%2F%2Faumsamstudents.amrita.edu%3A8443%2Faums%2FJsp%2FCore_Common%2FindexIPad.jsp%3Ftask%3Doff")));
+                                Uri.parse("https://aumsamstudents.amrita.edu:8443/cas/login?service=https%3A%2F%2Faumsamstudents.amrita.edu%3A8443%2Faums%2FJsp%2FCore_Common%2FindexIPad.jsp%3Ftask%3Doff")));
         }
         return true;
     }
+
+    private class openUploadActivity implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(MainActivity.this,UploadActivity.class);
+            startActivity(intent);
+        }
+    }
+
 }

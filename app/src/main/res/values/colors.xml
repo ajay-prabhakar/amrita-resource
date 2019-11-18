@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Primary color of the app (shown in the app bar) -->
-    <color name="primary_color">#1A73E5</color>
+    <color name="primary_color">#2A73E5</color>
 
     <!-- Primary dark color of the app (shown in the status bar) -->
-    <color name="primary_dark_color">#8AB4E0</color>
+    <color name="primary_dark_color">#D02A73E5</color>
 
     <!-- Background color for app -->
     <color name="tan_background">#FFFFFF</color>
@@ -12,7 +12,6 @@
 
     <!-- Primary color of the app (shown in the app bar) -->
     <color name="secondary_color">#2196F3</color>
-
 
     <!-- Background color for the numbers category -->
     <color name="category_numbers">#FD8E09</color>

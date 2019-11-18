@@ -82,7 +82,6 @@ public class UploadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
 
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
         toolbar.setTitle("Upload Document");
         setSupportActionBar(toolbar);

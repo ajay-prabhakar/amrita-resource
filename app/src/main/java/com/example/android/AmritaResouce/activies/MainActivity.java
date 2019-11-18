@@ -1,18 +1,18 @@
 /*
- * Copyright (C) 2016 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+* Copyright (C) 2016 The Android Open Source Project
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 package com.example.android.AmritaResouce.activies;
 
 import android.content.Intent;
@@ -22,20 +22,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.android.AmritaResouce.CSEActivity;
-import com.example.android.AmritaResouce.ECEActivity;
-import com.example.android.AmritaResouce.EEEActivity;
-import com.example.android.AmritaResouce.MECActivity;
 import com.example.android.AmritaResouce.R;
 import com.example.android.AmritaResouce.adapter.UploadDocumentAdapter;
 import com.example.android.AmritaResouce.models.UploadDocumentModel;
@@ -45,7 +36,6 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.robertlevonyan.views.customfloatingactionbutton.FloatingActionButton;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,19 +48,15 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
 
-
     private List<UploadDocumentModel> documentList;
     private UploadDocumentAdapter adapter;
 
-
     private FirebaseFirestore db;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Amrita Resource");
@@ -84,32 +70,29 @@ public class MainActivity extends AppCompatActivity {
     private void fetchDocuments() {
         db = FirebaseFirestore.getInstance();
 
+        db.collection("Uploads")
+                .get()
+                .addOnSuccessListener(
+                        new OnSuccessListener<QuerySnapshot>() {
+                            @Override
+                            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
-        db.collection("Uploads").get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                progressBar.setVisibility(View.GONE);
 
-                        progressBar.setVisibility(View.GONE);
+                                if (!queryDocumentSnapshots.isEmpty()) {
 
-                        if (!queryDocumentSnapshots.isEmpty()) {
+                                    List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
 
-                            List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                                    for (DocumentSnapshot d : list) {
 
-                            for (DocumentSnapshot d : list) {
+                                        UploadDocumentModel p = d.toObject(UploadDocumentModel.class);
+                                        documentList.add(p);
+                                    }
 
-                                UploadDocumentModel p = d.toObject(UploadDocumentModel.class);
-                                documentList.add(p);
-
+                                    adapter.notifyDataSetChanged();
+                                }
                             }
-
-                            adapter.notifyDataSetChanged();
-
-                        }
-
-
-                    }
-                });
+                        });
     }
 
     private void forRecyclerView() {
@@ -125,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_home_frag_main);
         progressBar = findViewById(R.id.progressbar);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

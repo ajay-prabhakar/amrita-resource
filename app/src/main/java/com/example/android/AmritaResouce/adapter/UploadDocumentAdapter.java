@@ -5,16 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.android.AmritaResouce.R;
 import com.example.android.AmritaResouce.models.UploadDocumentModel;
-
 import java.util.List;
 
-public class UploadDocumentAdapter extends RecyclerView.Adapter<UploadDocumentAdapter.UploadDocumentViewholder> {
+public class UploadDocumentAdapter
+        extends RecyclerView.Adapter<UploadDocumentAdapter.UploadDocumentViewholder> {
 
     Context context;
     List<UploadDocumentModel> DocumentList;
@@ -28,8 +26,7 @@ public class UploadDocumentAdapter extends RecyclerView.Adapter<UploadDocumentAd
     @Override
     public UploadDocumentViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new UploadDocumentViewholder(
-                LayoutInflater.from(context).inflate(R.layout.item_holder_recycler_home, parent, false)
-        );
+                LayoutInflater.from(context).inflate(R.layout.item_holder_recycler_home, parent, false));
     }
 
     @Override
@@ -40,7 +37,6 @@ public class UploadDocumentAdapter extends RecyclerView.Adapter<UploadDocumentAd
         holder.docSem.setText(document.getSem());
         holder.docAuthor.setText(document.getUserName());
         holder.docSubject.setText(document.getSubject());
-
     }
 
     @Override

@@ -54,6 +54,31 @@ These components can be downloaded bundled at the [Android studio IDE](https://d
 </table>
 
 
+## Workflow of app
+
+```
+AmritaResouce
+ ┣ activies
+ ┃ ┣ LoginActivity.java
+ ┃ ┣ MainActivity.java
+ ┃ ┗ UploadActivity.java
+ ┣ adapter
+ ┃ ┗ UploadDocumentAdapter.java
+ ┣ clicklistners
+ ┃ ┗ RecyclerItemClickListener.java
+ ┣ models
+ ┃ ┣ SubjectModel.java
+ ┃ ┣ UploadDocumentModel.java
+ ┃ ┣ UploadDocumentViewmodel.java
+ ┃ ┗ UserViewModel.java
+ ┣ utils
+ ┃ ┣ AlertDialogUtil.java
+ ┃ ┣ FireStoreQueryLiveData.java
+ ┃ ┗ NetworkUtil.java
+ ┣ MainApplication.java
+ ┗ webViewActivity.java
+ 
+ ```
 
 ### Setting up your development environment
 

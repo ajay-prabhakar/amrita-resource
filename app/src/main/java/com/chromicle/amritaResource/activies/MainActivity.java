@@ -13,7 +13,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package com.example.android.AmritaResouce.activies;
+package com.chromicle.amritaResource.activies;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -27,11 +27,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.android.AmritaResouce.R;
-import com.example.android.AmritaResouce.adapter.UploadDocumentAdapter;
-import com.example.android.AmritaResouce.clicklistners.RecyclerItemClickListener;
-import com.example.android.AmritaResouce.models.UploadDocumentModel;
-import com.example.android.AmritaResouce.webViewActivity;
+import com.chromicle.amritaResource.R;
+import com.chromicle.amritaResource.adapter.UploadDocumentAdapter;
+import com.chromicle.amritaResource.clicklistners.RecyclerItemClickListener;
+import com.chromicle.amritaResource.models.UploadDocumentModel;
+import com.chromicle.amritaResource.webViewActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;

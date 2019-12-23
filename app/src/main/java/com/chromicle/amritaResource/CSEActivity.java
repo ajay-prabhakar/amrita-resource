@@ -13,7 +13,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package com.example.android.AmritaResouce;
+package com.chromicle.amritaResource;
 
 import static android.widget.Toast.LENGTH_LONG;
 
@@ -30,8 +30,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import com.example.android.AmritaResouce.utils.AlertDialogUtil;
-import com.example.android.AmritaResouce.utils.NetworkUtil;
+import com.chromicle.amritaResource.utils.AlertDialogUtil;
+import com.chromicle.amritaResource.utils.NetworkUtil;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 

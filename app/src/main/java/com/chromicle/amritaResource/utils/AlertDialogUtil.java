@@ -1,4 +1,4 @@
-package com.example.android.AmritaResouce.utils;
+package com.chromicle.amritaResource.utils;
 
 import android.content.Context;
 import android.content.DialogInterface;

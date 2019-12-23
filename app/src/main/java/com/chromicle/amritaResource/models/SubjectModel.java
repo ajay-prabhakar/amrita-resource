@@ -1,4 +1,4 @@
-package com.example.android.AmritaResouce.models;
+package com.chromicle.amritaResource.models;
 
 public class SubjectModel {
 

@@ -1,4 +1,4 @@
-package com.example.android.AmritaResouce.clicklistners;
+package com.chromicle.amritaResource.clicklistners;
 
 import android.content.Context;
 import android.view.GestureDetector;

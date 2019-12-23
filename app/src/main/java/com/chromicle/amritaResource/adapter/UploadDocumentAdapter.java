@@ -1,4 +1,4 @@
-package com.example.android.AmritaResouce.adapter;
+package com.chromicle.amritaResource.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.android.AmritaResouce.R;
-import com.example.android.AmritaResouce.models.UploadDocumentModel;
+import com.chromicle.amritaResource.R;
+import com.chromicle.amritaResource.models.UploadDocumentModel;
 import java.util.List;
 
 public class UploadDocumentAdapter

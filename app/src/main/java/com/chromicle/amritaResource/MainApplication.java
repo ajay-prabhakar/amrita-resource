@@ -1,4 +1,4 @@
-package com.example.android.AmritaResouce;
+package com.chromicle.amritaResource;
 
 import android.app.Application;
 import android.content.Context;

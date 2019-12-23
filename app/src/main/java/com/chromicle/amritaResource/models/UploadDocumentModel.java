@@ -1,4 +1,4 @@
-package com.example.android.AmritaResouce.models;
+package com.chromicle.amritaResource.models;
 
 import androidx.room.Entity;
 import androidx.room.Ignore;

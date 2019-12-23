@@ -1,4 +1,4 @@
-package com.example.android.AmritaResouce.activies;
+package com.chromicle.amritaResource.activies;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -16,12 +16,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProviders;
-import com.example.android.AmritaResouce.R;
-import com.example.android.AmritaResouce.models.SubjectModel;
-import com.example.android.AmritaResouce.models.UploadDocumentModel;
-import com.example.android.AmritaResouce.models.UploadDocumentViewmodel;
-import com.example.android.AmritaResouce.models.UserViewModel;
-import com.example.android.AmritaResouce.utils.FireStoreQueryLiveData;
+import com.chromicle.amritaResource.R;
+import com.chromicle.amritaResource.models.SubjectModel;
+import com.chromicle.amritaResource.models.UploadDocumentModel;
+import com.chromicle.amritaResource.models.UploadDocumentViewmodel;
+import com.chromicle.amritaResource.models.UserViewModel;
+import com.chromicle.amritaResource.utils.FireStoreQueryLiveData;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;

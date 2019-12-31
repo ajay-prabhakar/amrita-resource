@@ -8,16 +8,16 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name="com.chromicle.android.AmritaResouce.MainApplication"
+        android:name="com.chromicle.amritaResource.MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.chromicle.android.AmritaResouce.activies.UploadActivity"></activity>
-        <activity android:name="com.chromicle.android.AmritaResouce.activies.MainActivity" />
-        <activity android:name="com.chromicle.android.AmritaResouce.activies.LoginActivity">
+        <activity android:name="com.chromicle.amritaResource.activies.UploadActivity" />
+        <activity android:name="com.chromicle.amritaResource.activies.MainActivity" />
+        <activity android:name="com.chromicle.amritaResource.activies.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,29 +25,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.chromicle.android.AmritaResouce.CSEActivity"
-            android:label="@string/category_numbers"
-            android:parentActivityName="com.chromicle.android.AmritaResouce.activies.MainActivity"
-            android:theme="@style/Activity" />
-        <activity
-            android:name="com.chromicle.android.AmritaResouce.ECEActivity"
-            android:label="@string/category_family"
-            android:parentActivityName="com.chromicle.android.AmritaResouce.activies.MainActivity"
-            android:theme="@style/Activity" />
-        <activity
-            android:name="com.chromicle.android.AmritaResouce.EEEActivity"
-            android:label="@string/category_colors"
-            android:parentActivityName="com.chromicle.android.AmritaResouce.activies.MainActivity"
-            android:theme="@style/Activity" />
-        <activity
-            android:name="com.chromicle.android.AmritaResouce.MECActivity"
-            android:label="@string/category_phrases"
-            android:parentActivityName="com.chromicle.android.AmritaResouce.activies.MainActivity"
-            android:theme="@style/Activity" />
-        <activity
-            android:name="com.chromicle.android.AmritaResouce.webViewActivity"
+            android:name="com.chromicle.amritaResource.webViewActivity"
             android:label="ABOUT APP"
-            android:parentActivityName="com.chromicle.android.AmritaResouce.activies.MainActivity" />
+            android:parentActivityName="com.chromicle.amritaResource.activies.MainActivity" />
     </application>
 
 </manifest>

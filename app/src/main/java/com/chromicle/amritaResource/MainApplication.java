@@ -12,7 +12,6 @@ import org.acra.data.StringFormat;
 
 @AcraMailSender(mailTo = MainApplication.EMAIL_TO)
 @AcraCore(buildConfigClass = BuildConfig.class)
-
 public class MainApplication extends Application {
     public static final String EMAIL_TO =
             "email@provider.bla"; // replace this value with your own(owner of the app) email id

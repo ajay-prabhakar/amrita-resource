@@ -44,6 +44,42 @@ These components can be downloaded bundled at the [Android studio IDE](https://d
 - [Logger](https://github.com/orhanobut/logger)
 
 
+## Screenshots
+<table>
+     <tr>
+          <td><img height="500" src="https://user-images.githubusercontent.com/48018942/69048369-4bcbc500-0a23-11ea-8c98-6e3fd3ead6d3.jpg" /><br /><center><b>Login Screen</b></center></td>
+          <td><img height="500" src="https://user-images.githubusercontent.com/48018942/69048366-4b332e80-0a23-11ea-9abd-29606d90a058.jpg" /><br /><center><b>Main Screen</b></center></td>
+          <td><img height="500" src="https://user-images.githubusercontent.com/48018942/69048367-4b332e80-0a23-11ea-943b-139033dd3a86.jpg" /><br /><center><b>Upload Document screen</b></center></td>
+     </tr>
+</table>
+
+
+## Workflow of app
+
+```
+AmritaResouce
+ ┣ activies
+ ┃ ┣ LoginActivity.java
+ ┃ ┣ MainActivity.java
+ ┃ ┗ UploadActivity.java
+ ┣ adapter
+ ┃ ┗ UploadDocumentAdapter.java
+ ┣ clicklistners
+ ┃ ┗ RecyclerItemClickListener.java
+ ┣ models
+ ┃ ┣ SubjectModel.java
+ ┃ ┣ UploadDocumentModel.java
+ ┃ ┣ UploadDocumentViewmodel.java
+ ┃ ┗ UserViewModel.java
+ ┣ utils
+ ┃ ┣ AlertDialogUtil.java
+ ┃ ┣ FireStoreQueryLiveData.java
+ ┃ ┗ NetworkUtil.java
+ ┣ MainApplication.java
+ ┗ webViewActivity.java
+ 
+ ```
+
 ### Setting up your development environment
 
 - Download and install Git

@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Amrita Resource");
-        setSupportActionBar(toolbar);
+//        setSupportActionBar(toolbar);
 
         layoutsInit();
         forRecyclerView();
@@ -130,29 +130,29 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-            case R.id.menuAboutAuthor:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://chromicle.github.io/")));
-                break;
-
-            case R.id.menuAboutApp:
-                Intent intent = new Intent(this, webViewActivity.class);
-                intent.putExtra(OPEN_URL, LICENSES_HTML_PATH);
-                startActivity(intent);
-                break;
-
-            case R.id.aums:
-                startActivity(
-                        new Intent(
-                                Intent.ACTION_VIEW,
-                                Uri.parse(
-                                        "https://aumsamstudents.amrita.edu:8443/cas/login?service=https%3A%2F%2Faumsamstudents.amrita.edu%3A8443%2Faums%2FJsp%2FCore_Common%2FindexIPad.jsp%3Ftask%3Doff")));
-        }
-        return true;
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//
+//        switch (item.getItemId()) {
+//            case R.id.menuAboutAuthor:
+//                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://chromicle.github.io/")));
+//                break;
+//
+//            case R.id.menuAboutApp:
+//                Intent intent = new Intent(this, webViewActivity.class);
+//                intent.putExtra(OPEN_URL, LICENSES_HTML_PATH);
+//                startActivity(intent);
+//                break;
+//
+//            case R.id.aums:
+//                startActivity(
+//                        new Intent(
+//                                Intent.ACTION_VIEW,
+//                                Uri.parse(
+//                                        "https://aumsamstudents.amrita.edu:8443/cas/login?service=https%3A%2F%2Faumsamstudents.amrita.edu%3A8443%2Faums%2FJsp%2FCore_Common%2FindexIPad.jsp%3Ftask%3Doff")));
+//        }
+//        return true;
+//    }
 
     private class openUploadActivity implements View.OnClickListener {
         @Override

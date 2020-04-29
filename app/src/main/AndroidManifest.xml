@@ -8,16 +8,23 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name="com.chromicle.amritaResource.MainApplication"
+        android:name=".MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.chromicle.amritaResource.activies.UploadActivity" />
-        <activity android:name="com.chromicle.amritaResource.activies.MainActivity" />
-        <activity android:name="com.chromicle.amritaResource.activies.LoginActivity">
+        <activity android:name=".activies.ProfileActivity"
+            android:parentActivityName=".activies.MainActivity"
+            android:label="Profile"
+            />
+        <activity
+            android:name=".activies.UploadActivity"
+            android:label="Upload Document"
+            android:parentActivityName=".activies.MainActivity" />
+        <activity android:name=".activies.MainActivity" />
+        <activity android:name=".activies.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,9 +32,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.chromicle.amritaResource.webViewActivity"
+            android:name=".webViewActivity"
             android:label="ABOUT APP"
-            android:parentActivityName="com.chromicle.amritaResource.activies.MainActivity" />
+            android:parentActivityName=".activies.MainActivity" />
     </application>
 
 </manifest>

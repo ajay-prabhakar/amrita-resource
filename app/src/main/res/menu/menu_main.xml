@@ -12,6 +12,11 @@
         app:actionViewClass="android.widget.SearchView"
         app:showAsAction="always|collapseActionView" />
 
+
+    <item
+        android:id="@+id/profile"
+        android:title="Profile" />
+
     <item
         android:id="@+id/menuAboutAuthor"
         android:title="About Author" />
@@ -23,5 +28,4 @@
     <item
         android:id="@+id/aums"
         android:title="AUMS" />
-
 </menu>

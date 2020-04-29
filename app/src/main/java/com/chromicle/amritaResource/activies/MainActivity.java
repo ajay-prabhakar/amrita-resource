@@ -25,7 +25,6 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -60,10 +59,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Amrita Resource");
-        setSupportActionBar(toolbar);
 
         layoutsInit();
         forRecyclerView();
@@ -178,7 +173,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 intent.putExtra(OPEN_URL, LICENSES_HTML_PATH);
                 startActivity(intent);
                 break;
-
+            case R.id.profile:
+                Intent profileIntent = new Intent(this, ProfileActivity.class);
+                startActivity(profileIntent);
+                break;
             case R.id.aums:
                 startActivity(
                         new Intent(

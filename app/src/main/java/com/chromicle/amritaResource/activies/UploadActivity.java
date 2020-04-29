@@ -14,7 +14,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProviders;
 import com.chromicle.amritaResource.R;
 import com.chromicle.amritaResource.models.SubjectModel;
@@ -81,10 +80,6 @@ public class UploadActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
-        toolbar.setTitle("Upload Document");
-        setSupportActionBar(toolbar);
 
         viewModel = ViewModelProviders.of(this).get(UploadDocumentViewmodel.class);
         userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);

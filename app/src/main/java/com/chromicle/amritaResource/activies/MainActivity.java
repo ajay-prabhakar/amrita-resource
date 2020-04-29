@@ -23,8 +23,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.SearchView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.chromicle.amritaResource.R;
@@ -40,7 +42,7 @@ import com.robertlevonyan.views.customfloatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     private static final String LICENSES_HTML_PATH = "file:///android_asset/about_app.html";
     public static final String OPEN_URL = "url";
@@ -49,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
 
-    private List<UploadDocumentModel> documentList;
+    private List<UploadDocumentModel> documentList, filteredDataList;
     private UploadDocumentAdapter adapter;
 
     private FirebaseFirestore db;
@@ -62,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Amrita Resource");
         setSupportActionBar(toolbar);
-
 
         layoutsInit();
         forRecyclerView();
@@ -128,7 +129,40 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu_main, menu);
+
+        MenuItem item = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
+        searchView.setOnQueryTextListener(this);
+
         return true;
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+
+        filteredDataList = filter(documentList, newText);
+        adapter.setFilter(filteredDataList);
+        return true;
+    }
+
+    private List<UploadDocumentModel> filter(List<UploadDocumentModel> dataList, String newText) {
+        newText = newText.toLowerCase();
+        String text;
+        filteredDataList = new ArrayList<>();
+        for (UploadDocumentModel dataFromDataList : dataList) {
+            text = dataFromDataList.getTitle().toLowerCase();
+
+            if (text.contains(newText)) {
+                filteredDataList.add(dataFromDataList);
+            }
+        }
+
+        return filteredDataList;
     }
 
     @Override

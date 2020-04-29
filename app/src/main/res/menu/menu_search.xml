@@ -1,12 +1,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
 
+    <item
         android:id="@+id/action_search"
+        android:icon="@drawable/ic_search"
         android:orderInCategory="200"
         android:title="Search"
-        android:icon="@drawable/ic_search"
         android:titleCondensed="Pencarian"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always|collapseActionView" />
 </menu>

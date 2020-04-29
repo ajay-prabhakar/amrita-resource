@@ -39,6 +39,11 @@ public class UploadDocumentAdapter
         holder.docSubject.setText(document.getSubject());
     }
 
+    public void setFilter(List<UploadDocumentModel> list) {
+        DocumentList = list;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return DocumentList.size();

@@ -86,7 +86,7 @@ AmritaResouce
 
 - Fork the [Amrita Resource project](https://github.com/Chromicle/AmritaResource)
 
-- Clone your fork of the project locally. At the command line:
+- Clone your fork of the project locally. At the command line in your Git Bash:
     ```
     $ git clone https://github.com/YOUR-GITHUB-USERNAME/AmritaResource
     ```
@@ -110,9 +110,6 @@ For Windows:
 - `gradlew check` then
 - `gradlew build` finally
 - `gradlew spotlessCheck`
-
-
-
 
 NOTE: Currently sever is not working but update the features in the app
 Currently I am updating the resources for CSE and ECE departments only and that too for semester 3 only. Once I get all the resources, I will update in all departments.
